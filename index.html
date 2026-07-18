@@ -6,8 +6,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0f1a0f">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <title>Trail & Wall — 12-Week Plan</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -248,6 +246,27 @@
   .ex-name { font-size: 14px; color: var(--text); line-height: 1.4; }
   .ex-row.checked .ex-name { color: var(--text3); text-decoration: line-through; }
   .ex-detail { font-size: 12px; color: var(--text3); margin-top: 2px; }
+  .weight-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .weight-label { font-size: 11px; color: var(--text3); white-space: nowrap; }
+  .weight-input {
+    width: 72px;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border2);
+    background: var(--bg3);
+    color: var(--text);
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  .weight-input:focus { border-color: var(--accent2); }
+  .weight-unit { font-size: 11px; color: var(--text3); }
   .note-box {
     background: rgba(126,200,126,0.07);
     border-left: 2px solid var(--accent2);
@@ -533,7 +552,7 @@ const PHASES = [
           {n:"KB goblet squat",d:"3 × 10 — lower body push strength, hip mobility at depth"},
           {n:"KB high pull",d:"3 × 8 each side — rear shoulder and upper back power, simulates pulling movement"},
           {n:"KB single-leg deadlift",d:"3 × 5 each leg — balance and unilateral hip strength"},
-          {n:"KB farmer's walk",d:"3 × 30 sec — grip endurance for sustained hold time on the wall"},
+          {n:"KB bottoms-up hold",d:"3 × 20 sec each side — bell inverted on fist, shoulder packed. Grip + shoulder stability with zero floor space needed"},
           {n:"CORE — KB windmill",d:"3 × 5 each side"},
           {n:"CORE — KB glute bridge hold",d:"3 × 20 sec — bell on hips, posterior chain activation"},
         ]},
@@ -590,7 +609,7 @@ const PHASES = [
           {n:"KB clean + press",d:"3 × 5 each side — clean to rack, press overhead. Grip + full chain integration"},
           {n:"KB single-arm row",d:"3 × 8 each side — lat and rear delt pulling strength"},
           {n:"KB single-leg deadlift",d:"3 × 6 each leg"},
-          {n:"KB farmer's walk",d:"3 × 40 sec — grip endurance, walk slow, fingers fully engaged"},
+          {n:"Dead hang (pull-up bar or rings)",d:"3 × max time — hang from bar, full grip engaged, shoulders depressed. Direct climbing grip endurance transfer"},
           {n:"CORE — KB windmill",d:"3 × 5 each side"},
           {n:"CORE — KB dead bug",d:"3 × 6 each side"},
         ]},
@@ -715,7 +734,7 @@ const PHASES = [
           {n:"KB goblet squat",d:"4 × 10 — deeper, heavier"},
           {n:"KB high pull",d:"4 × 8 each side — explosive rear shoulder + upper back"},
           {n:"KB single-leg deadlift",d:"3 × 8 each leg"},
-          {n:"KB farmer's walk",d:"4 × 40 sec — heavier bell, sustained grip"},
+          {n:"KB pinch hold (by the bell)",d:"4 × 30 sec each hand — grip the smooth bell head with fingertips and thumb. Trains pinch grip and thumb opposition, often the weak link at 5.11"},
           {n:"CORE — KB windmill",d:"3 × 6 each side"},
           {n:"CORE — KB dead bug",d:"3 × 8 each side"},
         ]},
@@ -738,7 +757,7 @@ const PHASES = [
           {n:"KB clean + press",d:"3 × 6 each side"},
           {n:"KB single-arm row",d:"4 × 10 each side — heavy"},
           {n:"KB single-leg deadlift",d:"3 × 8 each leg"},
-          {n:"KB farmer's walk",d:"4 × 40 sec — grip endurance into the hike"},
+          {n:"KB bottoms-up press hold",d:"4 × 20 sec each side — press inverted bell overhead and hold. Grip failure = bell drops. Direct feedback, shoulder stability, zero space needed"},
           {n:"CORE — KB windmill",d:"3 × 6 each side"},
           {n:"CORE — KB plank drag",d:"3 × 6 each side"},
         ]},
@@ -806,7 +825,7 @@ const PHASES = [
           {n:"KB goblet squat",d:"4 × 10 — heavy"},
           {n:"KB high pull",d:"4 × 8 each side — explosive rear shoulder and trap power"},
           {n:"KB single-leg deadlift",d:"3 × 8 each leg"},
-          {n:"KB farmer's walk",d:"4 × 45 sec — heavier bell, grip endurance"},
+          {n:"Dead hang (bar)",d:"4 × max time — full dead hang, open-hand grip. Forearm endurance for sustained hold time on routes. Heavier than bodyweight = add vest or belt weight"},
           {n:"CORE — KB windmill",d:"3 × 6 each side"},
           {n:"CORE — KB dead bug",d:"3 × 8 each side"},
         ]},
@@ -858,7 +877,7 @@ const PHASES = [
           {n:"KB snatch",d:"3 × 6 each side — reinforce the pattern from Wednesday"},
           {n:"KB single-arm row",d:"4 × 10 each side"},
           {n:"KB single-leg deadlift",d:"3 × 8 each leg"},
-          {n:"KB farmer's walk",d:"4 × 45 sec — heaviest load of the week"},
+          {n:"KB pinch hold (by the bell)",d:"4 × 35 sec each hand — heavier bell, same pinch technique. Thumb + fingertip endurance at climbing-relevant load"},
           {n:"CORE — KB windmill",d:"3 × 6 each side"},
           {n:"CORE — KB plank drag",d:"3 × 6 each side"},
         ]},
@@ -939,7 +958,7 @@ const PHASES = [
           {n:"KB goblet squat",d:"5 × 10 — heavy"},
           {n:"KB high pull",d:"4 × 8 each side — explosive, elbows drive high"},
           {n:"KB single-leg deadlift",d:"4 × 8 each leg"},
-          {n:"KB farmer's walk",d:"5 × 50 sec — heaviest bell of the program"},
+          {n:"Dead hang — towel grip",d:"5 × max time — drape a towel over the pull-up bar, grip the towel ends. Thick-grip simulation, forearm recruitment far exceeds standard hang"},
           {n:"CORE — KB windmill",d:"4 × 6 each side"},
           {n:"CORE — KB dead bug",d:"4 × 8 each side"},
         ]},
@@ -995,7 +1014,7 @@ const PHASES = [
           {n:"KB snatch",d:"4 × 6 each side — reinforce pattern, max load"},
           {n:"KB single-arm row",d:"5 × 10 each side"},
           {n:"KB single-leg deadlift",d:"4 × 8 each leg"},
-          {n:"KB farmer's walk",d:"5 × 50 sec — max grip challenge of the week"},
+          {n:"KB bottoms-up clean hold",d:"5 × 20 sec each side — clean to rack with bell inverted, hold. Explodes grip demand at the catch and hold phase — mirrors latching a hold explosively"},
           {n:"CORE — KB windmill",d:"4 × 6 each side"},
           {n:"CORE — KB plank drag",d:"4 × 6 each side"},
         ]},
@@ -1107,16 +1126,47 @@ function buildDayCard(phase, dayName, dayData, isToday) {
   const tags = dayData.tags.map(t => `<span class="dtag ${TAG_CLS[t]}">${TAG_LABEL[t]}</span>`).join('');
   const dot = DIFF_DOT[dayData.diff] || 'dot-easy';
 
+  // Exercises that get a weight tracking input
+  const WEIGHTED_KW = ['swing','deadlift','squat','row','press','clean','snatch',
+    'lunge','turkish','windmill','renegade','high pull','curl','extension',
+    'bridge','hip thrust','skull','pullover','suitcase','hang','pinch',
+    'bottoms-up','repeater','max hang','weighted','rdl'];
+  const EXCLUDE_KW = ['mountain climber','jumping','clamshell','fire hydrant',
+    'donkey kick','dead bug','plank drag','hollow','push-up','pull-up',
+    'extensor','halo','hip circle','cat-cow','superman','monster walk','band'];
+  function isWeighted(name) {
+    const n = name.toLowerCase();
+    if (EXCLUDE_KW.some(kw => n.includes(kw))) return false;
+    return WEIGHTED_KW.some(kw => n.includes(kw));
+  }
+
   let blocksHtml = '';
   dayData.blocks.forEach((blk, bi) => {
     const items = blk.ex.map((ex, ei) => {
       const key = exKey(phase.id, dayName, bi, ei);
+      const wkey = `w_p${phase.id}_${dayName}_${bi}_${ei}`;
       const isDone = !!checked[key];
+      const savedWeight = checked[wkey] || '';
+      const weighted = isWeighted(ex.n);
+
+      const weightHtml = weighted
+        ? `<div class="weight-row">
+            <span class="weight-label">Last weight:</span>
+            <input class="weight-input" type="number" inputmode="decimal"
+              placeholder="0" value="${savedWeight}"
+              onclick="event.stopPropagation()"
+              onchange="saveWeight('${wkey}',this.value)"
+              ontouchend="event.stopPropagation()">
+            <span class="weight-unit">lb</span>
+           </div>`
+        : '';
+
       return `<div class="ex-row ${isDone?'checked':''}" onclick="toggleEx('${key}', this)">
         <div class="ex-checkbox ${isDone?'checked':''}"></div>
         <div class="ex-text">
           <div class="ex-name">${ex.n}</div>
           <div class="ex-detail">${ex.d}</div>
+          ${weightHtml}
         </div>
       </div>`;
     }).join('');
@@ -1124,7 +1174,7 @@ function buildDayCard(phase, dayName, dayData, isToday) {
   });
 
   const note = dayData.note ? `<div class="note-box">${dayData.note}</div>` : '';
-  const clearBtn = `<button class="clear-day-btn" onclick="clearDay(${phase.id},'${dayName}',this);event.stopPropagation()">Clear day</button>`;
+  const clearBtn = `<button class="clear-day-btn" onclick="clearDay(${phase.id},'${dayName}',this);event.stopPropagation()">Clear checkmarks</button>`;
 
   return `<div class="day-card" data-phase="${phase.id}" data-day="${dayName}">
     <div class="day-header" onclick="toggleCard(this.parentElement)">
@@ -1137,18 +1187,22 @@ function buildDayCard(phase, dayName, dayData, isToday) {
   </div>`;
 }
 
+function saveWeight(wkey, val) {
+  checked[wkey] = val;
+  saveState();
+}
+
 function clearDay(phaseId, dayName, btn) {
   const phase = PHASES.find(p => p.id === phaseId);
   if (!phase) return;
   const dayData = phase.days[dayName];
+  // Clear ONLY check state — weight inputs are untouched
   dayData.blocks.forEach((blk, bi) => {
     blk.ex.forEach((ex, ei) => {
-      const key = exKey(phaseId, dayName, bi, ei);
-      checked[key] = false;
+      checked[exKey(phaseId, dayName, bi, ei)] = false;
     });
   });
   saveState();
-  // Uncheck all visible rows in this card
   const card = btn.closest('.day-card');
   card.querySelectorAll('.ex-row').forEach(row => {
     row.classList.remove('checked');
@@ -1331,13 +1385,6 @@ function init() {
 }
 
 init();
-</script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  });
-}
 </script>
 </body>
 </html>
