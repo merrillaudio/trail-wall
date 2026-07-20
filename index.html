@@ -6,8 +6,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#0f1a0f">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <title>Trail & Wall — 12-Week Plan</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -497,567 +495,1110 @@
 // ──────────────────────────────────────────
 const PHASES = [
   {
-    id:1, label:"Phase 1", name:"Foundation & Release", cls:"p1",
-    weeks:"Weeks 1–3", badge:"Weeks 1–3",
+    id:1,
+    label:"Phase 1",
+    name:"Foundation & Release",
+    cls:"p1",
+    weeks:"Weeks 1–3",
+    badge:"Weeks 1–3",
     desc:"Priority is loosening the psoas, hip flexors, and lower back while reactivating dormant glutes. Daily yoga + PT exercises + gentle full-body conditioning. KB sessions 4 mornings a week at foundation intensity — technique and movement pattern over load.",
-    focuses:["Psoas release","Hip mobility","Glute activation","KB circuits A–D: climbing-functional","Military calisthenics"],
+    focuses:["Psoas release", "Hip mobility", "Glute activation", "KB circuits A–D: climbing-functional", "Military calisthenics"],
     days:{
-      Monday:{tags:["pt","yoga","stretch","strength"],diff:"medium",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit A · 30 min",ex:[
-          {n:"KB single-leg deadlift",d:"3 × 5 each leg — weight shifting + hip hinge, mirrors climbing balance demands"},
-          {n:"KB swing (two-hand)",d:"3 × 10 — hip drive and posterior chain, builds power for push-off on footholds"},
-          {n:"KB single-arm row",d:"3 × 8 each side — rear delts and lats, direct pull-strength carry-over"},
-          {n:"KB reverse lunge (racked)",d:"3 × 8 each leg — coordination + leg drive, mimics stepping through on the wall"},
-          {n:"KB windmill",d:"3 × 5 each side — obliques, hip mobility, shoulder stability overhead"},
-          {n:"CORE — KB suitcase carry",d:"3 × 30 sec each side — anti-lateral flexion, builds wall tension"},
-          {n:"CORE — KB dead bug",d:"3 × 6 each side — bell overhead, slow lower of opposite arm/leg"},
-        ]},
-        {type:"pt",title:"PT / Activation · 20 min",ex:[
-          {n:"90/90 hip stretch",d:"3 × 60 sec each side"},
-          {n:"Psoas lunge stretch",d:"3 × 45 sec each side, posterior tilt"},
-          {n:"Pigeon pose hold",d:"3 × 60 sec each side"},
-          {n:"Glute bridge (bodyweight)",d:"3 × 15 reps, 2-sec hold at top"},
-          {n:"Clamshell with band",d:"3 × 20 each side, light resistance"},
-          {n:"Dead bug",d:"3 × 8 reps each side, slow"},
-        ]},
-        {type:"yoga",title:"Yoga Flow · 25 min",ex:[
-          {n:"Cat-cow",d:"2 min continuous"},
-          {n:"Child's pose → thread the needle",d:"5 min"},
-          {n:"Low crescent lunge sequence",d:"5 min each side"},
-          {n:"Supine spinal twist",d:"3 min each side"},
-          {n:"Legs up the wall",d:"5 min"},
-        ]},
-        {type:"strength",title:"Light Strength · 20 min",ex:[
-          {n:"Goblet squat",d:"3 × 12, light DB (15–25 lb)"},
-          {n:"Resistance band pull-apart",d:"3 × 15"},
-          {n:"Single-leg RDL (bodyweight)",d:"3 × 8 each side"},
-          {n:"Wall push-up / incline push-up",d:"3 × 12"},
-        ]},
-      ],note:"Focus on breath during every stretch. Exhale into the stretch to deepen release."},
-      Tuesday:{tags:["yoga","stretch"],diff:"easy",blocks:[
-        {type:"yoga",title:"Morning Yoga · 30 min",ex:[
-          {n:"Sun salutation A (slow)",d:"5 rounds"},
-          {n:"Warrior I + II sequence",d:"3 min each side"},
-          {n:"Triangle pose",d:"2 min each side"},
-          {n:"Seated forward fold",d:"3 min"},
-          {n:"Happy baby",d:"3 min"},
-        ]},
-        {type:"stretch",title:"Evening Stretch · 15 min",ex:[
-          {n:"Hip flexor foam roll",d:"2 min each side"},
-          {n:"Glute stretch (figure-4)",d:"2 min each side"},
-          {n:"Thoracic extension over foam roller",d:"3 min"},
-        ]},
-      ],note:"Active recovery day. Keep movement gentle and mindful."},
-      Wednesday:{tags:["pt","strength","stretch"],diff:"medium",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit B · 30 min",ex:[
-          {n:"KB clean",d:"3 × 6 each side — grip, coordination, forearm endurance through the catch"},
-          {n:"KB goblet squat",d:"3 × 10 — lower body push strength, hip mobility at depth"},
-          {n:"KB high pull",d:"3 × 8 each side — rear shoulder and upper back power, simulates pulling movement"},
-          {n:"KB single-leg deadlift",d:"3 × 5 each leg — balance and unilateral hip strength"},
-          {n:"KB bottoms-up hold",d:"3 × 20 sec each side — bell inverted on fist, shoulder packed. Grip + shoulder stability with zero floor space needed"},
-          {n:"CORE — KB windmill",d:"3 × 5 each side"},
-          {n:"CORE — KB glute bridge hold",d:"3 × 20 sec — bell on hips, posterior chain activation"},
-        ]},
-        {type:"pt",title:"PT Circuit · 25 min",ex:[
-          {n:"Side-lying hip abduction",d:"3 × 20 each side"},
-          {n:"Prone hip extension",d:"3 × 15 each side"},
-          {n:"Banded monster walk",d:"3 × 20 steps each direction"},
-          {n:"Hip 90/90 internal rotation",d:"3 × 10 each side"},
-          {n:"McGill curl-up",d:"3 × 6"},
-        ]},
-        {type:"strength",title:"Upper + Core · 25 min",ex:[
-          {n:"Dumbbell row",d:"3 × 12 each arm"},
-          {n:"DB overhead press (seated)",d:"3 × 12"},
-          {n:"Plank",d:"3 × 30 sec"},
-          {n:"Pallof press with band",d:"3 × 10 each side"},
-        ]},
-        {type:"stretch",title:"Post-session · 10 min",ex:[
-          {n:"Standing quad + psoas stretch",d:"90 sec each side"},
-          {n:"Seated piriformis stretch",d:"90 sec each side"},
-          {n:"Child's pose",d:"3 min"},
-        ]},
-      ],note:null},
-      Thursday:{tags:["yoga","strength"],diff:"easy",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit C · 30 min",ex:[
-          {n:"KB Turkish get-up",d:"3 × 2 each side — full movement, slow. Builds total-body stability + shoulder proprioception identical to overhead climbing position"},
-          {n:"KB swing (single-arm)",d:"3 × 8 each side — grip demand higher than two-hand, forearm endurance"},
-          {n:"KB renegade row",d:"3 × 5 each side — upper back + core anti-rotation, mimics body tension on the wall"},
-          {n:"KB lateral lunge",d:"3 × 8 each side — hip mobility + leg drive from wide footholds"},
-          {n:"KB overhead press",d:"3 × 8 each side — shoulder stability in full lock-out, critical for high reaches"},
-          {n:"CORE — KB suitcase carry",d:"3 × 30 sec each side"},
-          {n:"CORE — KB plank drag",d:"3 × 5 each side — drag bell under body, zero hip rotation"},
-        ]},
-        {type:"yoga",title:"Restorative Yoga · 35 min",ex:[
-          {n:"Supported bridge pose",d:"5 min with block"},
-          {n:"Reclining bound angle",d:"5 min"},
-          {n:"Low lunge + chest opener",d:"3 min each side"},
-          {n:"Supine figure-4 stretch",d:"3 min each side"},
-          {n:"Savasana with legs elevated",d:"10 min"},
-        ]},
-        {type:"strength",title:"Military Calisthenics · 30 min — Foundation",ex:[
-          {n:"Jumping jacks",d:"2 × 30 reps — warm-up cadence"},
-          {n:"Push-ups",d:"3 × 10, strict form — chest to deck, full lock-out"},
-          {n:"Bodyweight squat",d:"3 × 15, controlled pace"},
-          {n:"Alternating reverse lunge",d:"3 × 10 each leg"},
-          {n:"Plank",d:"3 × 30 sec"},
-          {n:"Mountain climbers",d:"2 × 20 reps (10 each leg), moderate pace"},
-          {n:"Band pull-apart",d:"3 × 15, arms straight"},
-          {n:"Superman hold",d:"3 × 10 sec — posterior chain awareness"},
-        ]},
-      ],note:"Calisthenics after yoga — body is already warm. Weeks 1–3 are about movement quality and building the base pattern. Keep rest generous (60–90 sec between sets)."},
-      Friday:{tags:["pt","strength","stretch"],diff:"medium",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit D · 30 min",ex:[
-          {n:"KB swing (two-hand)",d:"3 × 15 — cardiovascular + grip endurance, builds stamina for long routes"},
-          {n:"KB clean + press",d:"3 × 5 each side — clean to rack, press overhead. Grip + full chain integration"},
-          {n:"KB single-arm row",d:"3 × 8 each side — lat and rear delt pulling strength"},
-          {n:"KB single-leg deadlift",d:"3 × 6 each leg"},
-          {n:"Dead hang (pull-up bar or rings)",d:"3 × max time — hang from bar, full grip engaged, shoulders depressed. Direct climbing grip endurance transfer"},
-          {n:"CORE — KB windmill",d:"3 × 5 each side"},
-          {n:"CORE — KB dead bug",d:"3 × 6 each side"},
-        ]},
-        {type:"pt",title:"PT Focus: Glutes + Hips · 20 min",ex:[
-          {n:"Banded glute bridge",d:"4 × 15"},
-          {n:"Fire hydrant",d:"3 × 15 each side"},
-          {n:"Donkey kick",d:"3 × 15 each side"},
-          {n:"Standing hip circle",d:"2 × 10 each direction"},
-          {n:"Lateral band walk",d:"3 × 15 steps each direction"},
-        ]},
-        {type:"strength",title:"Full Body Light · 25 min",ex:[
-          {n:"Sumo squat with DB",d:"3 × 12, focus on hip crease"},
-          {n:"DB chest press",d:"3 × 12"},
-          {n:"Band row",d:"3 × 12"},
-          {n:"Farmer's carry",d:"3 × 30 sec, light"},
-          {n:"Side plank",d:"3 × 20 sec each side"},
-        ]},
-        {type:"stretch",title:"Cooldown · 15 min",ex:[
-          {n:"World's greatest stretch",d:"5 reps each side"},
-          {n:"Standing forward fold",d:"2 min"},
-          {n:"Reclining twist",d:"2 min each side"},
-        ]},
-      ],note:null},
-      Saturday:{tags:["hike","stretch"],diff:"easy",blocks:[
-        {type:"hike",title:"Easy Hike · 30–45 min",ex:[
-          {n:"Flat or gentle trail walk",d:"30–45 min, conversational pace"},
-          {n:"Heel-to-toe gait, glute engagement",d:"Squeeze glute at push-off"},
-        ]},
-        {type:"stretch",title:"Post-hike mobility · 20 min",ex:[
-          {n:"Hip flexor lunge stretch",d:"2 min each side"},
-          {n:"Calf + Achilles stretch",d:"90 sec each side"},
-          {n:"IT band stretch",d:"90 sec each side"},
-          {n:"Thoracic rotation",d:"10 reps each side"},
-        ]},
-      ],note:"Keep pace easy. Body awareness, not cardio."},
-      Sunday:{tags:["rest","stretch"],diff:"rest",blocks:[
-        {type:"stretch",title:"Nightly Flexibility · 20 min",ex:[
-          {n:"Foam roll: glutes, IT band, psoas",d:"2 min each area"},
-          {n:"90/90 hip stretch",d:"2 min each side"},
-          {n:"Pigeon pose",d:"2 min each side"},
-          {n:"Supine twist",d:"2 min each side"},
-          {n:"Legs up the wall",d:"5 min"},
-        ]},
-      ],note:"Full rest from training."},
+      Monday:{
+        tags:["pt", "yoga", "stretch", "strength"],
+        diff:"medium",
+        blocks:[
+          {
+            type:"yoga",
+            title:"Yoga Flow · 25 min",
+            ex:[
+              {n:"Cat-cow",d:"2 min continuous"},
+              {n:"Child's pose → thread the needle",d:"5 min"},
+              {n:"Low crescent lunge sequence",d:"5 min each side"},
+              {n:"Supine spinal twist",d:"3 min each side"},
+              {n:"Legs up the wall",d:"5 min"},
+              {n:"Dead bug",d:"3 × 8 each side — press lower back flat, extend opposite arm and leg slowly, exhale throughout"},
+              {n:"Reverse crunch",d:"3 × 15 — lie flat, bring knees to chest then curl hips off floor, lower controlled"},
+              {n:"Bicycle crunch",d:"3 × 20 — rotate elbow to opposite knee, full extension of the away leg, slow tempo"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit A · 30 min",
+            ex:[
+              {n:"KB single-leg deadlift",d:"3 × 5 each leg — weight shifting + hip hinge, mirrors climbing balance demands"},
+              {n:"KB swing (two-hand)",d:"3 × 10 — hip drive and posterior chain, builds power for push-off on footholds"},
+              {n:"KB single-arm row",d:"3 × 8 each side — rear delts and lats, direct pull-strength carry-over"},
+              {n:"KB reverse lunge (racked)",d:"3 × 8 each leg — coordination + leg drive, mimics stepping through on the wall"},
+              {n:"KB windmill",d:"3 × 5 each side — obliques, hip mobility, shoulder stability overhead"},
+              {
+                n:"Wrist roller",
+                d:"3 × 2 full rolls up and down — controlled forearm pump, same time under tension as a carry without the space"
+              },
+              {n:"CORE — KB dead bug",d:"3 × 6 each side — bell overhead, slow lower of opposite arm/leg"}
+            ]
+          },
+          {
+            type:"pt",
+            title:"PT / Activation · 20 min",
+            ex:[
+              {n:"90/90 hip stretch",d:"3 × 60 sec each side"},
+              {n:"Psoas lunge stretch",d:"3 × 45 sec each side, posterior tilt"},
+              {n:"Pigeon pose hold",d:"3 × 60 sec each side"},
+              {n:"Glute bridge (bodyweight)",d:"3 × 15 reps, 2-sec hold at top"},
+              {n:"Clamshell with band",d:"3 × 20 each side, light resistance"},
+              {n:"Dead bug",d:"3 × 8 reps each side, slow"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Light Strength · 20 min",
+            ex:[
+              {n:"Goblet squat",d:"3 × 12, light DB (15–25 lb)"},
+              {n:"Resistance band pull-apart",d:"3 × 15"},
+              {n:"Single-leg RDL (bodyweight)",d:"3 × 8 each side"},
+              {n:"Wall push-up / incline push-up",d:"3 × 12"}
+            ]
+          }
+        ],
+        note:"Focus on breath during every stretch. Exhale into the stretch to deepen release."
+      },
+      Tuesday:{
+        tags:["yoga", "stretch"],
+        diff:"easy",
+        blocks:[
+          {
+            type:"yoga",
+            title:"Morning Yoga · 30 min",
+            ex:[
+              {n:"Sun salutation A (slow)",d:"5 rounds"},
+              {n:"Warrior I + II sequence",d:"3 min each side"},
+              {n:"Triangle pose",d:"2 min each side"},
+              {n:"Seated forward fold",d:"3 min"},
+              {n:"Happy baby",d:"3 min"},
+              {n:"Bird dog",d:"3 × 10 each side — opposite arm and leg extended, hold 2 sec, spine perfectly neutral"},
+              {n:"Hollow body hold",d:"3 × 20 sec — arms overhead, lower back pressed flat, legs low. Build time each week"},
+              {n:"Side plank",d:"3 × 25 sec each side — hips stacked, body straight, no sag"}
+            ]
+          },
+          {
+            type:"stretch",
+            title:"Evening Stretch · 15 min",
+            ex:[
+              {n:"Hip flexor foam roll",d:"2 min each side"},
+              {n:"Glute stretch (figure-4)",d:"2 min each side"},
+              {n:"Thoracic extension over foam roller",d:"3 min"},
+              {n:"Dead bug",d:"3 × 6 each side — lower arm and opposite leg slowly, lower back stays flat"},
+              {n:"Bird dog",d:"3 × 8 each side — opposite arm and leg, hold 2 sec, spine neutral"},
+              {n:"Glute bridge hold",d:"3 × 20 sec — drive through heels, posterior tilt, squeeze top"},
+              {n:"Bird dog",d:"3 × 10 each side — opposite arm and leg extended, hold 2 sec, spine perfectly neutral"},
+              {n:"Hollow body hold",d:"3 × 20 sec — arms overhead, lower back pressed flat, legs low. Build time each week"},
+              {n:"Side plank",d:"3 × 25 sec each side — hips stacked, body straight, no sag"}
+            ]
+          }
+        ],
+        note:"Active recovery day. Keep movement gentle and mindful."
+      },
+      Wednesday:{
+        tags:["pt", "strength", "stretch"],
+        diff:"medium",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit B · 30 min",
+            ex:[
+              {n:"KB clean",d:"3 × 6 each side — grip, coordination, forearm endurance through the catch"},
+              {n:"KB goblet squat",d:"3 × 10 — lower body push strength, hip mobility at depth"},
+              {n:"KB high pull",d:"3 × 8 each side — rear shoulder and upper back power, simulates pulling movement"},
+              {
+                n:"KB good morning",
+                d:"3 × 10 — bell in goblet, hinge forward from hips, soft knee. Posterior chain + lower back stability"
+              },
+              {
+                n:"KB bottoms-up hold",
+                d:"3 × 20 sec each side — bell inverted on fist, shoulder packed. Grip + shoulder stability with zero floor space needed"
+              },
+              {n:"CORE — KB windmill",d:"3 × 5 each side"},
+              {n:"CORE — KB glute bridge hold",d:"3 × 20 sec — bell on hips, posterior chain activation"}
+            ]
+          },
+          {
+            type:"pt",
+            title:"PT Circuit · 25 min",
+            ex:[
+              {n:"Side-lying hip abduction",d:"3 × 20 each side"},
+              {n:"Prone hip extension",d:"3 × 15 each side"},
+              {n:"Banded monster walk",d:"3 × 20 steps each direction"},
+              {n:"Hip 90/90 internal rotation",d:"3 × 10 each side"},
+              {n:"McGill curl-up",d:"3 × 6"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Upper + Core · 25 min",
+            ex:[
+              {n:"Dumbbell row",d:"3 × 12 each arm"},
+              {n:"DB overhead press (seated)",d:"3 × 12"},
+              {n:"Plank",d:"3 × 30 sec"},
+              {n:"Pallof press with band",d:"3 × 10 each side"}
+            ]
+          },
+          {
+            type:"stretch",
+            title:"Post-session · 10 min",
+            ex:[
+              {n:"Standing quad + psoas stretch",d:"90 sec each side"},
+              {n:"Seated piriformis stretch",d:"90 sec each side"},
+              {n:"Child's pose",d:"3 min"},
+              {n:"Plank",d:"3 × 40 sec — rigid from head to heels, breathe, resist any hip movement"},
+              {n:"Mountain climber (slow)",d:"3 × 16 reps — drive knee to chest one at a time, 2-sec hold each, hips level"},
+              {n:"Superman hold",d:"3 × 10 × 3 sec — lie prone, lift arms + chest + legs simultaneously, squeeze glutes"}
+            ]
+          }
+        ],
+        note:null
+      },
+      Thursday:{
+        tags:["yoga", "strength"],
+        diff:"easy",
+        blocks:[
+          {
+            type:"yoga",
+            title:"Restorative Yoga · 35 min",
+            ex:[
+              {n:"Supported bridge pose",d:"5 min with block"},
+              {n:"Reclining bound angle",d:"5 min"},
+              {n:"Low lunge + chest opener",d:"3 min each side"},
+              {n:"Supine figure-4 stretch",d:"3 min each side"},
+              {n:"Savasana with legs elevated",d:"10 min"},
+              {n:"Dead bug",d:"3 × 8 each side"},
+              {n:"Glute bridge march",d:"3 × 10 each leg — hold bridge, lift one foot at a time, keep hips level throughout"},
+              {n:"Side-lying hip raise",d:"3 × 12 each side — lie on side, push hips off floor with bottom elbow, hold 1 sec"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit C · 30 min",
+            ex:[
+              {
+                n:"KB Turkish get-up",
+                d:"3 × 2 each side — full movement, slow. Builds total-body stability + shoulder proprioception identical to overhead climbing position"
+              },
+              {n:"KB swing (single-arm)",d:"3 × 8 each side — grip demand higher than two-hand, forearm endurance"},
+              {n:"KB renegade row",d:"3 × 5 each side — upper back + core anti-rotation, mimics body tension on the wall"},
+              {n:"KB lateral lunge",d:"3 × 8 each side — hip mobility + leg drive from wide footholds"},
+              {n:"KB overhead press",d:"3 × 8 each side — shoulder stability in full lock-out, critical for high reaches"},
+              {
+                n:"Plate pinch hold",
+                d:"3 × 20 sec each hand — pinch a 10–25 lb plate by its smooth side. Thumb + fingertip strength, often the weak link at 5.11"
+              },
+              {n:"CORE — KB plank drag",d:"3 × 5 each side — drag bell under body, zero hip rotation"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Military Calisthenics · 30 min — Foundation",
+            ex:[
+              {n:"Jumping jacks",d:"2 × 30 reps — warm-up cadence"},
+              {n:"Push-ups",d:"3 × 10, strict form — chest to deck, full lock-out"},
+              {n:"Bodyweight squat",d:"3 × 15, controlled pace"},
+              {n:"Alternating reverse lunge",d:"3 × 10 each leg"},
+              {n:"Plank",d:"3 × 30 sec"},
+              {n:"Mountain climbers",d:"2 × 20 reps (10 each leg), moderate pace"},
+              {n:"Band pull-apart",d:"3 × 15, arms straight"},
+              {n:"Superman hold",d:"3 × 10 sec — posterior chain awareness"}
+            ]
+          }
+        ],
+        note:"Calisthenics after yoga — body is already warm. Weeks 1–3 are about movement quality and building the base pattern. Keep rest generous (60–90 sec between sets)."
+      },
+      Friday:{
+        tags:["pt", "strength", "stretch"],
+        diff:"medium",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit D · 30 min",
+            ex:[
+              {n:"KB swing (two-hand)",d:"3 × 15 — cardiovascular + grip endurance, builds stamina for long routes"},
+              {n:"KB clean + press",d:"3 × 5 each side — clean to rack, press overhead. Grip + full chain integration"},
+              {n:"KB single-arm row",d:"3 × 8 each side — lat and rear delt pulling strength"},
+              {n:"KB sumo deadlift",d:"3 × 12 — wide stance, bell between feet, knees track toes. Glutes + inner thigh dominant"},
+              {
+                n:"Dead hang (pull-up bar or rings)",
+                d:"3 × max time — hang from bar, full grip engaged, shoulders depressed. Direct climbing grip endurance transfer"
+              },
+              {n:"CORE — KB windmill",d:"3 × 5 each side"},
+              {n:"CORE — KB dead bug",d:"3 × 6 each side"}
+            ]
+          },
+          {
+            type:"pt",
+            title:"PT Focus: Glutes + Hips · 20 min",
+            ex:[
+              {n:"Banded glute bridge",d:"4 × 15"},
+              {n:"Fire hydrant",d:"3 × 15 each side"},
+              {n:"Donkey kick",d:"3 × 15 each side"},
+              {n:"Standing hip circle",d:"2 × 10 each direction"},
+              {n:"Lateral band walk",d:"3 × 15 steps each direction"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Full Body Light · 25 min",
+            ex:[
+              {n:"Sumo squat with DB",d:"3 × 12, focus on hip crease"},
+              {n:"DB chest press",d:"3 × 12"},
+              {n:"Band row",d:"3 × 12"},
+              {n:"Farmer's carry",d:"3 × 30 sec, light"},
+              {n:"Side plank",d:"3 × 20 sec each side"}
+            ]
+          },
+          {
+            type:"stretch",
+            title:"Cooldown · 15 min",
+            ex:[
+              {n:"World's greatest stretch",d:"5 reps each side"},
+              {n:"Standing forward fold",d:"2 min"},
+              {n:"Reclining twist",d:"2 min each side"},
+              {n:"Hollow body hold",d:"3 × 25 sec — progress from Monday, hold longer"},
+              {n:"V-up",d:"3 × 10 — arms overhead, crunch up and touch toes simultaneously, control the descent"},
+              {n:"Bird dog with 3-sec hold",d:"3 × 8 each side — pause at full extension, brace hard, don't rotate"}
+            ]
+          }
+        ],
+        note:null
+      },
+      Saturday:{
+        tags:["hike", "stretch"],
+        diff:"easy",
+        blocks:[
+          {
+            type:"hike",
+            title:"Easy Hike · 30–45 min",
+            ex:[
+              {n:"Flat or gentle trail walk",d:"30–45 min, conversational pace"},
+              {n:"Heel-to-toe gait, glute engagement",d:"Squeeze glute at push-off"}
+            ]
+          },
+          {
+            type:"stretch",
+            title:"Post-hike mobility · 20 min",
+            ex:[
+              {n:"Hip flexor lunge stretch",d:"2 min each side"},
+              {n:"Calf + Achilles stretch",d:"90 sec each side"},
+              {n:"IT band stretch",d:"90 sec each side"},
+              {n:"Thoracic rotation",d:"10 reps each side"},
+              {n:"Reverse crunch",d:"3 × 15"},
+              {n:"Plank shoulder tap",d:"3 × 12 each side — tap opposite shoulder, zero hip rotation, slow and deliberate"},
+              {n:"Superman hold",d:"3 × 10 × 3 sec"}
+            ]
+          }
+        ],
+        note:"Keep pace easy. Body awareness, not cardio."
+      },
+      Sunday:{
+        tags:["rest", "stretch"],
+        diff:"rest",
+        blocks:[
+          {
+            type:"stretch",
+            title:"Nightly Flexibility · 20 min",
+            ex:[
+              {n:"Foam roll: glutes, IT band, psoas",d:"2 min each area"},
+              {n:"90/90 hip stretch",d:"2 min each side"},
+              {n:"Pigeon pose",d:"2 min each side"},
+              {n:"Supine twist",d:"2 min each side"},
+              {n:"Legs up the wall",d:"5 min"},
+              {n:"Dead bug",d:"3 × 6 each side — lower arm and opposite leg slowly, lower back stays flat"},
+              {n:"Bird dog",d:"3 × 8 each side — opposite arm and leg, hold 2 sec, spine neutral"},
+              {n:"Glute bridge hold",d:"3 × 20 sec — drive through heels, posterior tilt, squeeze top"}
+            ]
+          }
+        ],
+        note:"Full rest from training."
+      }
     }
   },
   {
-    id:2, label:"Phase 2", name:"Strength Transition", cls:"p2",
-    weeks:"Week 4", badge:"Week 4",
+    id:2,
+    label:"Phase 2",
+    name:"Strength Transition",
+    cls:"p2",
+    weeks:"Week 4",
+    badge:"Week 4",
     desc:"Ramp up strength training. Stretching moves to nightly only (permanent evening routine). Hiking gets longer. First climbing session.",
-    focuses:["Load increase","KB two-a-days","Swings + cleans introduced","Military calisthenics","Nightly flexibility"],
+    focuses:["Load increase", "KB two-a-days", "Swings + cleans introduced", "Military calisthenics", "Nightly flexibility"],
     days:{
-      Monday:{tags:["strength","pt"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit A · 30 min",ex:[
-          {n:"KB single-leg deadlift",d:"3 × 8 each leg — heavier than Phase 1, controlled hip hinge"},
-          {n:"KB swing (two-hand)",d:"4 × 15 — more volume, hip drive not arms"},
-          {n:"KB single-arm row",d:"4 × 10 each side — heavier, full lat retraction"},
-          {n:"KB reverse lunge (racked)",d:"3 × 10 each leg — bell in rack position"},
-          {n:"KB windmill",d:"3 × 6 each side — loaded, press stays locked overhead"},
-          {n:"CORE — KB suitcase carry",d:"3 × 40 sec each side"},
-          {n:"CORE — KB dead bug",d:"3 × 8 each side"},
-        ]},
-        {type:"strength",title:"Lower Body Strength · 40 min",ex:[
-          {n:"Goblet or barbell squat",d:"4 × 10, +10–20% load"},
-          {n:"Romanian deadlift",d:"4 × 10, moderate load"},
-          {n:"Bulgarian split squat",d:"3 × 10 each side"},
-          {n:"Hip thrust with heavy DB",d:"4 × 12"},
-          {n:"Step-ups with DB",d:"3 × 10 each leg, 12–18in box"},
-        ]},
-        {type:"pt",title:"Activation · 15 min",ex:[
-          {n:"Banded clamshell",d:"2 × 20 each side"},
-          {n:"Single-leg glute bridge",d:"3 × 12 each side"},
-        ]},
-      ],note:"Begin using heavier loads but maintain full hip mobility in every rep."},
-      Tuesday:{tags:["strength"],diff:"hard",blocks:[
-        {type:"strength",title:"Upper Pull Focus · 40 min",ex:[
-          {n:"Pull-ups or assisted",d:"4 × max (3–8 reps)"},
-          {n:"Dumbbell row",d:"4 × 10 each arm, heavier"},
-          {n:"Face pull with band",d:"3 × 15"},
-          {n:"Incline DB press",d:"3 × 10"},
-          {n:"Plank with shoulder tap",d:"3 × 10 each side"},
-          {n:"Hanging grip hold",d:"3 × 20–30 sec"},
-        ]},
-      ],note:"Pull-ups and grip work are the climbing-specific focus this week."},
-      Wednesday:{tags:["hike"],diff:"medium",blocks:[
-        {type:"hike",title:"Moderate Hike · 60–75 min",ex:[
-          {n:"Trail with some elevation",d:"300–500 ft, moderate pace"},
-          {n:"Downhill: eccentric quad control",d:"Control each step, no pounding"},
-        ]},
-      ],note:"Midweek hike replaces one strength session."},
-      Thursday:{tags:["strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit C · 30 min",ex:[
-          {n:"KB Turkish get-up",d:"3 × 3 each side — full movement now. Shoulder stability, proprioception, total-body control"},
-          {n:"KB swing (single-arm)",d:"4 × 10 each side — grip demand, forearm endurance"},
-          {n:"KB renegade row",d:"3 × 6 each side — plank + row, body tension mirrors wall climbing"},
-          {n:"KB clean + press",d:"3 × 6 each side — grip through the clean, overhead lock-out for shoulder stability"},
-          {n:"KB lateral lunge",d:"3 × 10 each side — hip mobility for wide foot placements"},
-          {n:"CORE — KB suitcase carry",d:"3 × 40 sec each side"},
-          {n:"CORE — KB windmill",d:"3 × 6 each side"},
-        ]},
-        {type:"strength",title:"Full Body + Core · 45 min",ex:[
-          {n:"Trap bar or conventional deadlift",d:"4 × 6, moderate–heavy"},
-          {n:"Overhead press",d:"3 × 10"},
-          {n:"Lateral lunge",d:"3 × 10 each side"},
-          {n:"Band woodchop",d:"3 × 10 each side"},
-          {n:"Ab wheel rollout",d:"3 × 8"},
-        ]},
-        {type:"strength",title:"Military Calisthenics · 30 min — Building",ex:[
-          {n:"Burpees",d:"3 × 8 — full extension at top, chest to deck at bottom"},
-          {n:"Diamond push-ups",d:"3 × 10"},
-          {n:"Jump squat",d:"3 × 10, land soft"},
-          {n:"Band-resisted push-up",d:"3 × 8 — band across back"},
-          {n:"Tuck jump",d:"3 × 8"},
-          {n:"Plank shoulder tap",d:"3 × 12 each side, hips stable"},
-          {n:"Reverse lunge to knee drive",d:"3 × 10 each leg"},
-          {n:"Band pull-apart overhead",d:"3 × 12"},
-        ]},
-      ],note:"Calisthenics follows the strength block. Rest 45–60 sec between sets — shorter than Phase 1."},
-      Friday:{tags:["climb","strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit B · 30 min",ex:[
-          {n:"KB clean",d:"4 × 8 each side — heavier, grip and forearm endurance through the catch"},
-          {n:"KB goblet squat",d:"4 × 10 — deeper, heavier"},
-          {n:"KB high pull",d:"4 × 8 each side — explosive rear shoulder + upper back"},
-          {n:"KB single-leg deadlift",d:"3 × 8 each leg"},
-          {n:"KB pinch hold (by the bell)",d:"4 × 30 sec each hand — grip the smooth bell head with fingertips and thumb. Trains pinch grip and thumb opposition, often the weak link at 5.11"},
-          {n:"CORE — KB windmill",d:"3 × 6 each side"},
-          {n:"CORE — KB dead bug",d:"3 × 8 each side"},
-        ]},
-        {type:"climb",title:"TRS Power Endurance · 75 min",ex:[
-          {n:"Warm-up laps on 5.9",d:"2–3 laps TRS, easy pace — fingers need 15–20 min regardless of how you feel"},
-          {n:"Lap intervals on 5.10a",d:"4 laps, 2-min rest between. Pace it — this is about pump accumulation, not speed"},
-          {n:"Back-to-back laps on 5.10a",d:"2 laps with no shake-out. Train your tolerance for sustained pump"},
-          {n:"One attempt on 5.10b/c",d:"Fresh rope, pick a route and send or red-point. Note every rest position"},
-          {n:"Downclimb easy sections",d:"Descend 10–15 moves before lowering — eccentric finger strength and route economy"},
-        ]},
-        {type:"strength",title:"Finger + Shoulder Accessory · 20 min",ex:[
-          {n:"Wrist curls + reverse wrist curls",d:"2 × 15 each"},
-          {n:"Shoulder external rotation with band",d:"2 × 15 each side"},
-          {n:"Finger extensor opens",d:"2 × 20 (rubber band, full spread)"},
-        ]},
-      ],note:"Goal this phase: comfortably lapping 5.10a, sending 5.10c. TRS lets you run volume without a partner — use it to rack up time on the wall."},
-      Saturday:{tags:["hike","strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit D · 30 min",ex:[
-          {n:"KB swing (two-hand)",d:"4 × 20 — max power, cardiovascular endurance for long routes"},
-          {n:"KB clean + press",d:"3 × 6 each side"},
-          {n:"KB single-arm row",d:"4 × 10 each side — heavy"},
-          {n:"KB single-leg deadlift",d:"3 × 8 each leg"},
-          {n:"KB bottoms-up press hold",d:"4 × 20 sec each side — press inverted bell overhead and hold. Grip failure = bell drops. Direct feedback, shoulder stability, zero space needed"},
-          {n:"CORE — KB windmill",d:"3 × 6 each side"},
-          {n:"CORE — KB plank drag",d:"3 × 6 each side"},
-        ]},
-        {type:"hike",title:"Long Hike · 90 min – 2 hr",ex:[
-          {n:"Mixed terrain trail",d:"600–1000 ft elevation"},
-          {n:"Light daypack (10–15 lb)",d:"Start practicing with weight"},
-        ]},
-      ],note:"KB in the morning, hike after. Longest hike so far."},
-      Sunday:{tags:["rest","stretch"],diff:"rest",blocks:[
-        {type:"stretch",title:"Nightly Flexibility · 20 min",ex:[
-          {n:"Foam roll full lower body",d:"8–10 min"},
-          {n:"Pigeon pose",d:"2 min each side"},
-          {n:"Lunge + reach",d:"90 sec each side"},
-          {n:"Reclining twist",d:"2 min each side"},
-        ]},
-      ],note:"Full rest. Nightly routine is now a permanent evening habit."},
+      Monday:{
+        tags:["strength", "pt"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit A · 30 min",
+            ex:[
+              {n:"KB single-leg deadlift",d:"3 × 8 each leg — heavier than Phase 1, controlled hip hinge"},
+              {n:"KB swing (two-hand)",d:"4 × 15 — more volume, hip drive not arms"},
+              {n:"KB single-arm row",d:"4 × 10 each side — heavier, full lat retraction"},
+              {n:"KB reverse lunge (racked)",d:"3 × 10 each leg — bell in rack position"},
+              {n:"KB windmill",d:"3 × 6 each side — loaded, press stays locked overhead"},
+              {
+                n:"Dead hang",
+                d:"3 × max time — hang from pull-up bar, shoulders depressed, open-hand grip. Most direct grip endurance transfer to climbing"
+              },
+              {n:"CORE — KB dead bug",d:"3 × 8 each side"}
+            ]
+          },
+          {
+            type:"pt",
+            title:"Activation · 15 min",
+            ex:[
+              {n:"Banded clamshell",d:"2 × 20 each side"},
+              {n:"Single-leg glute bridge",d:"3 × 12 each side"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Lower Body Strength · 40 min",
+            ex:[
+              {n:"Goblet or barbell squat",d:"4 × 10, +10–20% load"},
+              {n:"Romanian deadlift",d:"4 × 10, moderate load"},
+              {n:"Bulgarian split squat",d:"3 × 10 each side"},
+              {n:"Hip thrust with heavy DB",d:"4 × 12"},
+              {n:"Step-ups with DB",d:"3 × 10 each leg, 12–18in box"}
+            ]
+          }
+        ],
+        note:"Begin using heavier loads but maintain full hip mobility in every rep."
+      },
+      Tuesday:{
+        tags:["strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"Upper Pull Focus · 40 min",
+            ex:[
+              {n:"Pull-ups or assisted",d:"4 × max (3–8 reps)"},
+              {n:"Dumbbell row",d:"4 × 10 each arm, heavier"},
+              {n:"Face pull with band",d:"3 × 15"},
+              {n:"Incline DB press",d:"3 × 10"},
+              {n:"Plank with shoulder tap",d:"3 × 10 each side"},
+              {n:"Hanging grip hold",d:"3 × 20–30 sec"}
+            ]
+          }
+        ],
+        note:"Pull-ups and grip work are the climbing-specific focus this week."
+      },
+      Wednesday:{
+        tags:["hike"],
+        diff:"medium",
+        blocks:[
+          {
+            type:"hike",
+            title:"Moderate Hike · 60–75 min",
+            ex:[
+              {n:"Trail with some elevation",d:"300–500 ft, moderate pace"},
+              {n:"Downhill: eccentric quad control",d:"Control each step, no pounding"}
+            ]
+          }
+        ],
+        note:"Midweek hike replaces one strength session."
+      },
+      Thursday:{
+        tags:["strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit C · 30 min",
+            ex:[
+              {n:"KB Turkish get-up",d:"3 × 3 each side — full movement now. Shoulder stability, proprioception, total-body control"},
+              {n:"KB swing (single-arm)",d:"4 × 10 each side — grip demand, forearm endurance"},
+              {n:"KB renegade row",d:"3 × 6 each side — plank + row, body tension mirrors wall climbing"},
+              {n:"KB clean + press",d:"3 × 6 each side — grip through the clean, overhead lock-out for shoulder stability"},
+              {n:"KB lateral lunge",d:"3 × 10 each side — hip mobility for wide foot placements"},
+              {
+                n:"Hand gripper — endurance sets",
+                d:"3 × 20 reps at moderate resistance — adjustable gripper, full close each rep. Crush grip endurance for sustained route holds"
+              },
+              {n:"CORE — KB windmill",d:"3 × 6 each side"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Full Body + Core · 45 min",
+            ex:[
+              {n:"Trap bar or conventional deadlift",d:"4 × 6, moderate–heavy"},
+              {n:"Overhead press",d:"3 × 10"},
+              {n:"Lateral lunge",d:"3 × 10 each side"},
+              {n:"Captain's chair leg raise",d:"3 × 10 — legs straight or slight bend, raise to 90°, controlled lower"},
+              {n:"Cable woodchop (high to low)",d:"3 × 12 each side — rotate from shoulder height to opposite hip"},
+              {n:"Cable crunch (kneeling)",d:"3 × 12 — rope attachment, kneel, crunch down fully, pause at bottom"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Military Calisthenics · 30 min — Building",
+            ex:[
+              {n:"Burpees",d:"3 × 8 — full extension at top, chest to deck at bottom"},
+              {n:"Diamond push-ups",d:"3 × 10"},
+              {n:"Jump squat",d:"3 × 10, land soft"},
+              {n:"Band-resisted push-up",d:"3 × 8 — band across back"},
+              {n:"Tuck jump",d:"3 × 8"},
+              {n:"Plank shoulder tap",d:"3 × 12 each side, hips stable"},
+              {n:"Reverse lunge to knee drive",d:"3 × 10 each leg"},
+              {n:"Band pull-apart overhead",d:"3 × 12"}
+            ]
+          }
+        ],
+        note:"Calisthenics follows the strength block. Rest 45–60 sec between sets — shorter than Phase 1."
+      },
+      Friday:{
+        tags:["climb", "strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit B · 30 min",
+            ex:[
+              {n:"KB clean",d:"4 × 8 each side — heavier, grip and forearm endurance through the catch"},
+              {n:"KB goblet squat",d:"4 × 10 — deeper, heavier"},
+              {n:"KB high pull",d:"4 × 8 each side — explosive rear shoulder + upper back"},
+              {
+                n:"KB skater squat",
+                d:"3 × 6 each leg — rear foot on wall, squat on front leg, bell counterbalance. Quad + glute dominant, knee stability"
+              },
+              {
+                n:"KB pinch hold (by the bell)",
+                d:"4 × 30 sec each hand — grip the smooth bell head with fingertips and thumb. Trains pinch grip and thumb opposition, often the weak link at 5.11"
+              },
+              {n:"CORE — KB windmill",d:"3 × 6 each side"},
+              {n:"CORE — KB dead bug",d:"3 × 8 each side"}
+            ]
+          },
+          {
+            type:"climb",
+            title:"TRS Power Endurance · 75 min",
+            ex:[
+              {n:"Warm-up laps on 5.9",d:"2–3 laps TRS, easy pace — fingers need 15–20 min regardless of how you feel"},
+              {n:"Lap intervals on 5.10a",d:"4 laps, 2-min rest between. Pace it — this is about pump accumulation, not speed"},
+              {n:"Back-to-back laps on 5.10a",d:"2 laps with no shake-out. Train your tolerance for sustained pump"},
+              {n:"One attempt on 5.10b/c",d:"Fresh rope, pick a route and send or red-point. Note every rest position"},
+              {n:"Downclimb easy sections",d:"Descend 10–15 moves before lowering — eccentric finger strength and route economy"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Finger + Shoulder Accessory · 20 min",
+            ex:[
+              {n:"Wrist curls + reverse wrist curls",d:"2 × 15 each"},
+              {n:"Shoulder external rotation with band",d:"2 × 15 each side"},
+              {n:"Finger extensor opens",d:"2 × 20 (rubber band, full spread)"}
+            ]
+          }
+        ],
+        note:"Goal this phase: comfortably lapping 5.10a, sending 5.10c. TRS lets you run volume without a partner — use it to rack up time on the wall."
+      },
+      Saturday:{
+        tags:["hike", "strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit D · 30 min",
+            ex:[
+              {n:"KB swing (two-hand)",d:"4 × 20 — max power, cardiovascular endurance for long routes"},
+              {n:"KB clean + press",d:"3 × 6 each side"},
+              {n:"KB single-arm row",d:"4 × 10 each side — heavy"},
+              {n:"KB good morning",d:"4 × 10 — heavier than Phase 1, hinge deep, feel the hamstring load"},
+              {
+                n:"KB bottoms-up press hold",
+                d:"4 × 20 sec each side — press inverted bell overhead and hold. Grip failure = bell drops. Direct feedback, shoulder stability, zero space needed"
+              },
+              {n:"CORE — KB windmill",d:"3 × 6 each side"},
+              {n:"CORE — KB plank drag",d:"3 × 6 each side"}
+            ]
+          },
+          {
+            type:"hike",
+            title:"Long Hike · 90 min – 2 hr",
+            ex:[
+              {n:"Mixed terrain trail",d:"600–1000 ft elevation"},
+              {n:"Light daypack (10–15 lb)",d:"Start practicing with weight"}
+            ]
+          }
+        ],
+        note:"KB in the morning, hike after. Longest hike so far."
+      },
+      Sunday:{
+        tags:["rest", "stretch"],
+        diff:"rest",
+        blocks:[
+          {
+            type:"stretch",
+            title:"Nightly Flexibility · 20 min",
+            ex:[
+              {n:"Foam roll full lower body",d:"8–10 min"},
+              {n:"Pigeon pose",d:"2 min each side"},
+              {n:"Lunge + reach",d:"90 sec each side"},
+              {n:"Reclining twist",d:"2 min each side"},
+              {n:"Plank",d:"3 × 40 sec — rigid head to heels, no hips drifting"},
+              {n:"Side plank",d:"3 × 25 sec each side — hips stacked, body straight"},
+              {n:"Dead bug with reach",d:"3 × 8 each side — extend arm overhead as leg lowers, exhale throughout"}
+            ]
+          }
+        ],
+        note:"Full rest. Nightly routine is now a permanent evening habit."
+      }
     }
   },
   {
-    id:3, label:"Phase 3", name:"Hiking & Climb Focus", cls:"p3",
-    weeks:"Weeks 5–8", badge:"Weeks 5–8",
+    id:3,
+    label:"Phase 3",
+    name:"Hiking & Climb Focus",
+    cls:"p3",
+    weeks:"Weeks 5–8",
+    badge:"Weeks 5–8",
     desc:"Outdoor performance phase. Heavier strength, longer hikes, two climbing sessions per week with Force Board and hangboard finger training.",
-    focuses:["Progressive overload","KB snatch introduced · circuits escalate","Climbing + finger training","Military calisthenics","Nightly flexibility"],
+    focuses:["Progressive overload", "KB snatch introduced · circuits escalate", "Climbing + finger training", "Military calisthenics", "Nightly flexibility"],
     days:{
-      Monday:{tags:["strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit A · 30 min",ex:[
-          {n:"KB single-leg deadlift",d:"4 × 8 each leg — heavier, balance + hip hinge"},
-          {n:"KB single-arm row",d:"4 × 10 each side — heavy, lat drive"},
-          {n:"KB reverse lunge (racked)",d:"4 × 10 each leg"},
-          {n:"KB windmill",d:"4 × 6 each side — heavier press, thoracic rotation"},
-          {n:"CORE — KB Turkish get-up",d:"3 × 3 each side — full movement, increasing load week to week"},
-          {n:"CORE — KB suitcase carry",d:"3 × 45 sec each side"},
-        ]},
-        {type:"strength",title:"Lower Body Heavy · 50 min",ex:[
-          {n:"Back squat or front squat",d:"4 × 6–8, working weight"},
-          {n:"Single-leg RDL",d:"3 × 8 each, moderate-heavy"},
-          {n:"Hip thrust (barbell)",d:"4 × 10 heavy"},
-          {n:"Walking lunge with DB",d:"3 × 12 each leg"},
-          {n:"Eccentric step-down",d:"3 × 8 each, 4-sec descent"},
-        ]},
-      ],note:"Increase squat and hip thrust weight weekly by 5–10 lb if form holds."},
-      Tuesday:{tags:["climb","strength"],diff:"hard",blocks:[
-        {type:"climb",title:"TRS Power Endurance · 75 min",ex:[
-          {n:"Warm-up on 5.9 TRS",d:"2–3 laps, easy pace. Fingers 15–20 min regardless."},
-          {n:"One 5.10a warm-up lap",d:"Comfortable effort before the intervals. Shake out at each bolt."},
-          {n:"Lap intervals: 5.10b/c — 4 laps × 3-min rest",d:"70% pumped by the end of each lap, not destroyed"},
-          {n:"One attempt on 5.10d",d:"On-sight or red-point. Identify the rest positions, work the crux."},
-          {n:"Downclimb 15 moves before each lower",d:"Eccentric finger strength + movement economy on the route"},
-        ]},
-        {type:"pt",title:"Force Board (PitchSix) · 25 min",ex:[
-          {n:"OISO recruitment prep",d:"12 sets increasing intensity on 25mm+ edge. App: Pro Templates → Recruitment Prep. Warms up the nervous system, not just the tendons."},
-          {n:"YISO repeaters (half-crimp)",d:"7 sec on / 3 sec off × 6 reps, 3 sets. Rest 3 min between sets. Target 80–90% RPE on final rep of each set."},
-          {n:"Single-hand repeaters",d:"3 sets L hand, 3 sets R hand. Tracks asymmetry — if one side feels weaker log it."},
-          {n:"Lock-off holds at 90°",d:"3 × 5 sec. Stay 45–90°, never full lock-off."},
-        ]},
-        {type:"strength",title:"Climbing Accessory · 15 min",ex:[
-          {n:"Finger extensor opens",d:"3 × 20 (rubber band, full spread)"},
-          {n:"Scapular pull-ups",d:"3 × 10"},
-          {n:"Reverse wrist curl",d:"3 × 15 (protect pulleys)"},
-        ]},
-      ],note:"Force Board only — no hangboard this day. Hangboard is Wednesday. Target: sending 5.10c, projecting 5.10d."},
-      Wednesday:{tags:["strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit B · 30 min",ex:[
-          {n:"KB snatch",d:"4 × 5 each side — first appearance of snatch. Full hip extension + overhead lock-out. Grip, power, forearm endurance."},
-          {n:"KB goblet squat",d:"4 × 10 — heavy"},
-          {n:"KB high pull",d:"4 × 8 each side — explosive rear shoulder and trap power"},
-          {n:"KB single-leg deadlift",d:"3 × 8 each leg"},
-          {n:"Dead hang (bar)",d:"4 × max time — full dead hang, open-hand grip. Forearm endurance for sustained hold time on routes. Heavier than bodyweight = add vest or belt weight"},
-          {n:"CORE — KB windmill",d:"3 × 6 each side"},
-          {n:"CORE — KB dead bug",d:"3 × 8 each side"},
-        ]},
-        {type:"strength",title:"Upper Pull + Push · 45 min",ex:[
-          {n:"Pull-ups (weighted if possible)",d:"4 × 5–6"},
-          {n:"Bent-over row",d:"4 × 8 heavier"},
-          {n:"Arnold press",d:"3 × 10"},
-          {n:"TRX or ring row",d:"3 × 10"},
-          {n:"Push-up variations",d:"3 × 12–15"},
-          {n:"L-sit hold",d:"3 × 10–15 sec"},
-        ]},
-        {type:"pt",title:"Traditional Hangboard · 20 min",ex:[
-          {n:"Warm-up: jug hangs bodyweight",d:"3 × 10 sec open-hand before any edge work"},
-          {n:"7×3 repeaters: half-crimp (20mm edge)",d:"7 sec hang / 3 sec off × 3 reps, 3 sets. Rest 2–3 min."},
-          {n:"7×3 repeaters: open-hand (22–25mm edge)",d:"7 sec on / 3 sec off × 3 reps, 3 sets. Rest 2–3 min."},
-          {n:"7×3 repeaters: sloper",d:"7 sec on / 3 sec off × 3 reps. Shoulders depressed, no shrugging."},
-          {n:"Pinch block hold",d:"3 × 10 sec, bodyweight or light added load"},
-        ]},
-        {type:"strength",title:"Military Calisthenics · 30 min — Intermediate",ex:[
-          {n:"Burpee to pull-up",d:"3 × 6 — push-up at the bottom, pull-up at the jump"},
-          {n:"Pike push-up",d:"3 × 10 — hips high, shoulders over hands"},
-          {n:"Pistol squat progression",d:"3 × 6 each leg — assisted on wall or box as needed"},
-          {n:"Band-resisted push-up",d:"3 × 10, band across upper back"},
-          {n:"Lateral band shuffle + squat",d:"3 × 10 each direction"},
-          {n:"Hollow body hold",d:"3 × 20 sec"},
-          {n:"Jumping lunge",d:"3 × 8 each leg, controlled landing"},
-          {n:"Band pull-apart — alternating wide and overhead",d:"3 × 15 total"},
-        ]},
-      ],note:"Hangboard only on fingers — no Force Board. Calisthenics after. Rest 45 sec between sets."},
-      Thursday:{tags:["hike","strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit C · 30 min",ex:[
-          {n:"KB Turkish get-up",d:"4 × 3 each side — heavier than Phase 2, full control at every transition"},
-          {n:"KB swing (single-arm)",d:"4 × 12 each side — grip and forearm endurance"},
-          {n:"KB renegade row",d:"4 × 6 each side — full plank tension, no hip rotation"},
-          {n:"KB clean + press",d:"4 × 6 each side — one breath per rep, grip held throughout"},
-          {n:"KB lateral lunge",d:"3 × 10 each side"},
-          {n:"CORE — KB suitcase carry",d:"4 × 45 sec each side"},
-          {n:"CORE — KB windmill",d:"3 × 6 each side"},
-        ]},
-        {type:"hike",title:"Fitness Hike · 2–3 hr",ex:[
-          {n:"Trail with 1000–1500 ft gain",d:"Moderate-hard effort"},
-          {n:"Loaded pack: 15–20 lb",d:"Realistic hiking load"},
-          {n:"Switchbacks + rest-step on steep sections",d:"Conserve energy — sustainable pace to the top"},
-        ]},
-      ],note:"Core hiking training day. Push the elevation."},
-      Friday:{tags:["climb","strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit D · 30 min",ex:[
-          {n:"KB swing (two-hand)",d:"5 × 20 — cardiovascular endurance, grip stamina"},
-          {n:"KB snatch",d:"3 × 6 each side — reinforce the pattern from Wednesday"},
-          {n:"KB single-arm row",d:"4 × 10 each side"},
-          {n:"KB single-leg deadlift",d:"3 × 8 each leg"},
-          {n:"KB pinch hold (by the bell)",d:"4 × 35 sec each hand — heavier bell, same pinch technique. Thumb + fingertip endurance at climbing-relevant load"},
-          {n:"CORE — KB windmill",d:"3 × 6 each side"},
-          {n:"CORE — KB plank drag",d:"3 × 6 each side"},
-        ]},
-        {type:"climb",title:"TRS Volume + Technique · 60 min",ex:[
-          {n:"Warm-up on 5.9 TRS",d:"2 laps"},
-          {n:"One 5.10a warm-up lap",d:"Before any hard effort"},
-          {n:"Volume laps on 5.10b/c TRS",d:"6–8 laps, sub-max — movement quality over intensity"},
-          {n:"Slab work",d:"2–3 routes — open-hand on small holds, hips close to wall"},
-          {n:"On-sight: 5.10c or 5.10d",d:"No preview. Commit to your first read."},
-        ]},
-        {type:"pt",title:"Force Board: OISO Contact Strength · 20 min",ex:[
-          {n:"OISO recruitment prep",d:"8 sets ramping intensity on 25mm+ edge"},
-          {n:"OISO main sets",d:"6 sec explosive pull, 5 sets, 3 min rest. Max RFD on every rep."},
-          {n:"Single-hand OISO",d:"2 sets each hand. Check for side imbalance."},
-        ]},
-        {type:"strength",title:"Core + Stability · 20 min",ex:[
-          {n:"Hanging knee raise",d:"3 × 12"},
-          {n:"Pallof press",d:"3 × 10 each side"},
-          {n:"Copenhagen plank",d:"3 × 15 sec each side"},
-        ]},
-      ],note:"Force Board OISO only — no hangboard. Hangboard is Wednesday."},
-      Saturday:{tags:["hike"],diff:"hard",blocks:[
-        {type:"hike",title:"Long Hike · 3–4 hr",ex:[
-          {n:"Long trail, 1500–2500 ft gain",d:"Sustained effort, not threshold"},
-          {n:"Loaded pack: 15–20 lb",d:"Full kit"},
-          {n:"Fueling: ~200–250 cal/hr",d:"Eat on a schedule, not just when hungry"},
-          {n:"Controlled descent",d:"Eccentric quad work on the way down"},
-        ]},
-      ],note:null},
-      Sunday:{tags:["rest","stretch"],diff:"rest",blocks:[
-        {type:"stretch",title:"Nightly Flexibility · 20 min",ex:[
-          {n:"Foam roll: IT band, glutes, thoracic",d:"8 min"},
-          {n:"Pigeon pose",d:"2 min each side"},
-          {n:"Psoas lunge with reach",d:"90 sec each side"},
-          {n:"Doorframe pec stretch",d:"60 sec each side"},
-          {n:"Supine twist",d:"2 min each side"},
-        ]},
-      ],note:"Rest. Nightly routine every single night."},
+      Monday:{
+        tags:["strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit A · 30 min",
+            ex:[
+              {n:"KB single-leg deadlift",d:"4 × 8 each leg — heavier, balance + hip hinge"},
+              {n:"KB single-arm row",d:"4 × 10 each side — heavy, lat drive"},
+              {n:"KB reverse lunge (racked)",d:"4 × 10 each leg"},
+              {n:"KB windmill",d:"4 × 6 each side — heavier press, thoracic rotation"},
+              {n:"CORE — KB Turkish get-up",d:"3 × 3 each side — full movement, increasing load week to week"},
+              {
+                n:"Towel hang",
+                d:"3 × max time — drape towel over pull-up bar, grip both ends and hang. Sloper simulation, thick-grip forearm recruitment"
+              }
+            ]
+          },
+          {
+            type:"strength",
+            title:"Lower Body Heavy · 50 min",
+            ex:[
+              {n:"Back squat or front squat",d:"4 × 6–8, working weight"},
+              {n:"Single-leg RDL",d:"3 × 8 each, moderate-heavy"},
+              {n:"Hip thrust (barbell)",d:"4 × 10 heavy"},
+              {n:"Walking lunge with DB",d:"3 × 12 each leg"},
+              {n:"Eccentric step-down",d:"3 × 8 each, 4-sec descent"}
+            ]
+          }
+        ],
+        note:"Increase squat and hip thrust weight weekly by 5–10 lb if form holds."
+      },
+      Tuesday:{
+        tags:["climb", "strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"climb",
+            title:"TRS Power Endurance · 75 min",
+            ex:[
+              {n:"Warm-up on 5.9 TRS",d:"2–3 laps, easy pace. Fingers 15–20 min regardless."},
+              {n:"One 5.10a warm-up lap",d:"Comfortable effort before the intervals. Shake out at each bolt."},
+              {n:"Lap intervals: 5.10b/c — 4 laps × 3-min rest",d:"70% pumped by the end of each lap, not destroyed"},
+              {n:"One attempt on 5.10d",d:"On-sight or red-point. Identify the rest positions, work the crux."},
+              {n:"Downclimb 15 moves before each lower",d:"Eccentric finger strength + movement economy on the route"}
+            ]
+          },
+          {
+            type:"pt",
+            title:"Force Board (PitchSix) · 25 min",
+            ex:[
+              {
+                n:"OISO recruitment prep",
+                d:"12 sets increasing intensity on 25mm+ edge. App: Pro Templates → Recruitment Prep. Warms up the nervous system, not just the tendons."
+              },
+              {
+                n:"YISO repeaters (half-crimp)",
+                d:"7 sec on / 3 sec off × 6 reps, 3 sets. Rest 3 min between sets. Target 80–90% RPE on final rep of each set."
+              },
+              {n:"Single-hand repeaters",d:"3 sets L hand, 3 sets R hand. Tracks asymmetry — if one side feels weaker log it."},
+              {n:"Lock-off holds at 90°",d:"3 × 5 sec. Stay 45–90°, never full lock-off."}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Climbing Accessory · 15 min",
+            ex:[
+              {n:"Finger extensor opens",d:"3 × 20 (rubber band, full spread)"},
+              {n:"Scapular pull-ups",d:"3 × 10"},
+              {n:"Reverse wrist curl",d:"3 × 15 (protect pulleys)"}
+            ]
+          }
+        ],
+        note:"Force Board only — no hangboard this day. Hangboard is Wednesday. Target: sending 5.10c, projecting 5.10d."
+      },
+      Wednesday:{
+        tags:["strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit B · 30 min",
+            ex:[
+              {
+                n:"KB snatch",
+                d:"4 × 5 each side — first appearance of snatch. Full hip extension + overhead lock-out. Grip, power, forearm endurance."
+              },
+              {n:"KB goblet squat",d:"4 × 10 — heavy"},
+              {n:"KB high pull",d:"4 × 8 each side — explosive rear shoulder and trap power"},
+              {
+                n:"KB step-up",
+                d:"4 × 10 each leg — bell goblet, drive through heel on step. Hip flexor + quad, direct hiking carry-over"
+              },
+              {
+                n:"Dead hang (pull-up bar)",
+                d:"4 × max time — full dead hang, open-hand grip. Forearm endurance for sustained hold time on routes. Heavier than bodyweight = add vest or belt weight"
+              },
+              {n:"CORE — KB windmill",d:"3 × 6 each side"},
+              {n:"CORE — KB dead bug",d:"3 × 8 each side"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Upper Pull + Push · 45 min",
+            ex:[
+              {n:"Pull-ups (weighted if possible)",d:"4 × 5–6"},
+              {n:"Bent-over row",d:"4 × 8 heavier"},
+              {n:"Arnold press",d:"3 × 10"},
+              {n:"TRX or ring row",d:"3 × 10"},
+              {n:"Push-up variations",d:"3 × 12–15"},
+              {n:"L-sit hold",d:"3 × 10–15 sec"}
+            ]
+          },
+          {
+            type:"pt",
+            title:"Traditional Hangboard · 20 min",
+            ex:[
+              {n:"Warm-up: jug hangs bodyweight",d:"3 × 10 sec open-hand before any edge work"},
+              {n:"7×3 repeaters: half-crimp (20mm edge)",d:"7 sec hang / 3 sec off × 3 reps, 3 sets. Rest 2–3 min."},
+              {n:"7×3 repeaters: open-hand (22–25mm edge)",d:"7 sec on / 3 sec off × 3 reps, 3 sets. Rest 2–3 min."},
+              {n:"7×3 repeaters: sloper",d:"7 sec on / 3 sec off × 3 reps. Shoulders depressed, no shrugging."},
+              {n:"Pinch block hold",d:"3 × 10 sec, bodyweight or light added load"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Military Calisthenics · 30 min — Intermediate",
+            ex:[
+              {n:"Burpee to pull-up",d:"3 × 6 — push-up at the bottom, pull-up at the jump"},
+              {n:"Pike push-up",d:"3 × 10 — hips high, shoulders over hands"},
+              {n:"Pistol squat progression",d:"3 × 6 each leg — assisted on wall or box as needed"},
+              {n:"Band-resisted push-up",d:"3 × 10, band across upper back"},
+              {n:"Lateral band shuffle + squat",d:"3 × 10 each direction"},
+              {n:"Hollow body hold",d:"3 × 20 sec"},
+              {n:"Jumping lunge",d:"3 × 8 each leg, controlled landing"},
+              {n:"Band pull-apart — alternating wide and overhead",d:"3 × 15 total"}
+            ]
+          }
+        ],
+        note:"Hangboard only on fingers — no Force Board. Calisthenics after. Rest 45 sec between sets."
+      },
+      Thursday:{
+        tags:["hike", "strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit C · 30 min",
+            ex:[
+              {n:"KB Turkish get-up",d:"4 × 3 each side — heavier than Phase 2, full control at every transition"},
+              {n:"KB swing (single-arm)",d:"4 × 12 each side — grip and forearm endurance"},
+              {n:"KB renegade row",d:"4 × 6 each side — full plank tension, no hip rotation"},
+              {n:"KB clean + press",d:"4 × 6 each side — one breath per rep, grip held throughout"},
+              {n:"KB lateral lunge",d:"3 × 10 each side"},
+              {
+                n:"Single-arm dead hang (assisted)",
+                d:"4 × 15 sec each arm — hold bar one hand, lightly touch opposite wrist for safety. Builds unilateral grip endurance and control"
+              },
+              {n:"CORE — KB windmill",d:"3 × 6 each side"}
+            ]
+          },
+          {
+            type:"hike",
+            title:"Fitness Hike · 2–3 hr",
+            ex:[
+              {n:"Trail with 1000–1500 ft gain",d:"Moderate-hard effort"},
+              {n:"Loaded pack: 15–20 lb",d:"Realistic hiking load"},
+              {n:"Switchbacks + rest-step on steep sections",d:"Conserve energy — sustainable pace to the top"}
+            ]
+          }
+        ],
+        note:"Core hiking training day. Push the elevation."
+      },
+      Friday:{
+        tags:["climb", "strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit D · 30 min",
+            ex:[
+              {n:"KB swing (two-hand)",d:"5 × 20 — cardiovascular endurance, grip stamina"},
+              {n:"KB snatch",d:"3 × 6 each side — reinforce the pattern from Wednesday"},
+              {n:"KB single-arm row",d:"4 × 10 each side"},
+              {n:"KB sumo deadlift",d:"4 × 10 — heavier load, wide stance, controlled descent"},
+              {
+                n:"KB pinch hold (by the bell)",
+                d:"4 × 35 sec each hand — heavier bell, same pinch technique. Thumb + fingertip endurance at climbing-relevant load"
+              },
+              {n:"CORE — KB windmill",d:"3 × 6 each side"},
+              {n:"CORE — KB plank drag",d:"3 × 6 each side"}
+            ]
+          },
+          {
+            type:"climb",
+            title:"TRS Volume + Technique · 60 min",
+            ex:[
+              {n:"Warm-up on 5.9 TRS",d:"2 laps"},
+              {n:"One 5.10a warm-up lap",d:"Before any hard effort"},
+              {n:"Volume laps on 5.10b/c TRS",d:"6–8 laps, sub-max — movement quality over intensity"},
+              {n:"Slab work",d:"2–3 routes — open-hand on small holds, hips close to wall"},
+              {n:"On-sight: 5.10c or 5.10d",d:"No preview. Commit to your first read."}
+            ]
+          },
+          {
+            type:"pt",
+            title:"Force Board: OISO Contact Strength · 20 min",
+            ex:[
+              {n:"OISO recruitment prep",d:"8 sets ramping intensity on 25mm+ edge"},
+              {n:"OISO main sets",d:"6 sec explosive pull, 5 sets, 3 min rest. Max RFD on every rep."},
+              {n:"Single-hand OISO",d:"2 sets each hand. Check for side imbalance."}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Core + Stability · 25 min",
+            ex:[
+              {n:"Captain's chair hanging leg raise",d:"3 × 10 — legs straight, raise to 90°, 3-sec controlled lower"},
+              {n:"Cable woodchop (high to low)",d:"3 × 12 each side — rotate from shoulder to opposite hip, stay tall"},
+              {n:"Cable crunch (kneeling)",d:"3 × 15 — rope attachment, round spine fully, pause and squeeze at bottom"},
+              {n:"Cable pallof press",d:"3 × 10 each side — press out, resist rotation, hold 2 sec"},
+              {n:"Decline oblique crunch",d:"3 × 12 each side — rotate elbow to opposite knee, controlled tempo"}
+            ]
+          }
+        ],
+        note:"Force Board OISO only — no hangboard. Hangboard is Wednesday."
+      },
+      Saturday:{
+        tags:["hike"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"hike",
+            title:"Long Hike · 3–4 hr",
+            ex:[
+              {n:"Long trail, 1500–2500 ft gain",d:"Sustained effort, not threshold"},
+              {n:"Loaded pack: 15–20 lb",d:"Full kit"},
+              {n:"Fueling: ~200–250 cal/hr",d:"Eat on a schedule, not just when hungry"},
+              {n:"Controlled descent",d:"Eccentric quad work on the way down"}
+            ]
+          }
+        ],
+        note:null
+      },
+      Sunday:{
+        tags:["rest", "stretch"],
+        diff:"rest",
+        blocks:[
+          {
+            type:"stretch",
+            title:"Nightly Flexibility · 20 min",
+            ex:[
+              {n:"Foam roll: IT band, glutes, thoracic",d:"8 min"},
+              {n:"Pigeon pose",d:"2 min each side"},
+              {n:"Psoas lunge with reach",d:"90 sec each side"},
+              {n:"Doorframe pec stretch",d:"60 sec each side"},
+              {n:"Supine twist",d:"2 min each side"},
+              {n:"Hollow body hold",d:"3 × 25 sec — arms overhead, lower back pressed flat, legs low"},
+              {n:"Side plank with hip dip",d:"3 × 10 each side — dip hip to floor, drive back up dynamically"},
+              {n:"McGill bird dog",d:"3 × 8 each side — fist on floor, extend opposite arm + leg, brace hard"}
+            ]
+          }
+        ],
+        note:"Rest. Nightly routine every single night."
+      }
     }
   },
   {
-    id:4, label:"Phase 4", name:"Peak Performance", cls:"p4",
-    weeks:"Weeks 9–12", badge:"Weeks 9–12",
+    id:4,
+    label:"Phase 4",
+    name:"Peak Performance",
+    cls:"p4",
+    weeks:"Weeks 9–12",
+    badge:"Weeks 9–12",
     desc:"Full performance phase. Heavy strength 3–4x/week. Multi-pitch climbing. All-day hikes with major elevation. Nightly stretch is locked in for life.",
-    focuses:["Max strength","KB circuits A–D at peak load · snatch + TGU heavy","Multi-pitch climbing","Full-day hikes","Military calisthenics peak"],
+    focuses:["Max strength", "KB circuits A–D at peak load · snatch + TGU heavy", "Multi-pitch climbing", "Full-day hikes", "Military calisthenics peak"],
     days:{
-      Monday:{tags:["strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit A · 30 min",ex:[
-          {n:"KB single-leg deadlift",d:"5 × 8 each leg — peak load, full hip hinge control"},
-          {n:"KB swing (two-hand)",d:"5 × 20 — max power output"},
-          {n:"KB single-arm row",d:"5 × 10 each side — heaviest load"},
-          {n:"KB reverse lunge (racked)",d:"4 × 10 each leg"},
-          {n:"KB windmill",d:"4 × 6 each side — heaviest windmill load"},
-          {n:"CORE — KB Turkish get-up",d:"4 × 3 each side — max controlled load"},
-          {n:"CORE — KB suitcase carry",d:"4 × 50 sec each side"},
-        ]},
-        {type:"strength",title:"Heavy Lower Body · 55 min",ex:[
-          {n:"Back squat",d:"5 × 5, near max for 5 reps"},
-          {n:"Deadlift",d:"3 × 5, heavy"},
-          {n:"Hip thrust",d:"4 × 8 heavy"},
-          {n:"Single-leg press",d:"3 × 10 each side"},
-          {n:"Nordic curl",d:"3 × 6, eccentric focus"},
-        ]},
-      ],note:"Progressive overload: beat last week's weight by 5 lb on primary lifts."},
-      Tuesday:{tags:["climb"],diff:"hard",blocks:[
-        {type:"climb",title:"TRS Power Endurance: Peak · 90 min",ex:[
-          {n:"Warm-up on 5.9 TRS",d:"2 laps"},
-          {n:"One to two 5.10a warm-up laps",d:"Until fingers and shoulders feel ready"},
-          {n:"4×4 TRS intervals on 5.11a/b",d:"4 laps, 4-min rest between rounds, 3 rounds total"},
-          {n:"Red-point attempt: 5.11b or 5.11c",d:"Work the project — lock in rest positions and crux sequence"},
-          {n:"Hangdog the crux",d:"3–5 fresh attempts on the crux sequence from the rope"},
-          {n:"Cool-down on 5.9 / 5.10a",d:"2 easy laps"},
-        ]},
-      ],note:"Target: send 5.11b by week 10, project 5.11c by week 12."},
-      Wednesday:{tags:["strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit B · 30 min",ex:[
-          {n:"KB snatch",d:"5 × 6 each side — heaviest snatch load. Full power chain from hips to overhead lock-out."},
-          {n:"KB goblet squat",d:"5 × 10 — heavy"},
-          {n:"KB high pull",d:"4 × 8 each side — explosive, elbows drive high"},
-          {n:"KB single-leg deadlift",d:"4 × 8 each leg"},
-          {n:"Dead hang — towel grip",d:"5 × max time — drape a towel over the pull-up bar, grip the towel ends. Thick-grip simulation, forearm recruitment far exceeds standard hang"},
-          {n:"CORE — KB windmill",d:"4 × 6 each side"},
-          {n:"CORE — KB dead bug",d:"4 × 8 each side"},
-        ]},
-        {type:"strength",title:"Upper Heavy · 35 min",ex:[
-          {n:"Weighted pull-ups",d:"5 × 4–5, add 10–25 lb belt"},
-          {n:"Pendlay row",d:"4 × 6 heavy"},
-          {n:"Overhead press",d:"4 × 6 heavy"},
-          {n:"Farmer's carry heavy",d:"4 × 40 sec"},
-        ]},
-        {type:"pt",title:"Force Board Only · 30 min",ex:[
-          {n:"Peak Force benchmark (monthly)",d:"Max half-crimp pull each hand — log it and compare to Phase 3 baseline"},
-          {n:"OISO contact strength",d:"6 sec explosive pull, 5 sets, 3 min rest. Lat engagement throughout."},
-          {n:"YISO single-hand repeaters",d:"7 sec on / 3 sec off × 6 reps each hand, 3 sets. Half-crimp."},
-          {n:"Towel pull-up",d:"3 × max reps"},
-        ]},
-        {type:"strength",title:"Military Calisthenics · 30 min — Peak",ex:[
-          {n:"Burpee pull-up",d:"4 × 6, explosive"},
-          {n:"Archer push-up",d:"4 × 6 each side — one arm extended, one bent, shift side to side"},
-          {n:"Single-leg burpee",d:"3 × 5 each leg"},
-          {n:"Band-resisted pike push-up",d:"4 × 8 — band across hips"},
-          {n:"Plyometric push-up",d:"3 × 8 — hands leave ground at the top"},
-          {n:"Pistol squat",d:"4 × 8 each leg, unassisted"},
-          {n:"Hollow-to-arch rock",d:"3 × 10 — controlled roll front to back"},
-          {n:"Band pull-apart complex",d:"3 × 10 wide, 10 overhead, 10 face-pull angle — no rest between"},
-        ]},
-      ],note:"Force Board only on fingers — hangboard is Thursday. Calisthenics rest 30–45 sec between sets. By Phase 4 these should feel hard but not unmanageable."},
-      Thursday:{tags:["hike","strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit C · 30 min",ex:[
-          {n:"KB Turkish get-up",d:"4 × 4 each side — peak TGU load. Full control at every transition."},
-          {n:"KB swing (single-arm)",d:"5 × 12 each side — grip and forearm endurance at max"},
-          {n:"KB renegade row",d:"4 × 8 each side — strict plank, zero hip rotation"},
-          {n:"KB clean + press",d:"4 × 6 each side — one breath per rep"},
-          {n:"KB lateral lunge",d:"4 × 10 each side"},
-          {n:"CORE — KB suitcase carry",d:"4 × 50 sec each side"},
-          {n:"CORE — KB windmill",d:"4 × 6 each side"},
-        ]},
-        {type:"pt",title:"Traditional Hangboard (weighted) · 25 min",ex:[
-          {n:"Warm-up: jug hangs bodyweight",d:"3 × 10 sec open-hand"},
-          {n:"Weighted max hang: half-crimp (20mm edge)",d:"20mm + 5–15 lb, 5–7 sec, 3–5 sets, 3 min rest. 85–95% RPE."},
-          {n:"Bodyweight 7×3: open-hand (22mm+ edge)",d:"7 sec on / 3 sec off × 3 reps, 3 sets, 2–3 min rest"},
-          {n:"Sloper 7×3",d:"Shoulders depressed throughout"},
-          {n:"Pinch block weighted hold",d:"3 × 10 sec with 5–10 lb added"},
-        ]},
-        {type:"hike",title:"Peak Hike · 4–6 hr",ex:[
-          {n:"Significant summit / multi-peak",d:"2500–4000+ ft elevation"},
-          {n:"Pack: 20–25 lb",d:"Full kit — emergency gear, layers"},
-          {n:"Map + compass or GPS navigation",d:"Choose your line, not just the trail"},
-        ]},
-      ],note:"Hangboard in the morning, hike after. 2–3 hrs between is plenty. Leave early, tell someone your route."},
-      Friday:{tags:["climb","strength"],diff:"hard",blocks:[
-        {type:"strength",title:"KB Morning · Climbing Circuit D · 30 min",ex:[
-          {n:"KB swing (two-hand)",d:"5 × 25 — cardiovascular and grip endurance peak"},
-          {n:"KB snatch",d:"4 × 6 each side — reinforce pattern, max load"},
-          {n:"KB single-arm row",d:"5 × 10 each side"},
-          {n:"KB single-leg deadlift",d:"4 × 8 each leg"},
-          {n:"KB bottoms-up clean hold",d:"5 × 20 sec each side — clean to rack with bell inverted, hold. Explodes grip demand at the catch and hold phase — mirrors latching a hold explosively"},
-          {n:"CORE — KB windmill",d:"4 × 6 each side"},
-          {n:"CORE — KB plank drag",d:"4 × 6 each side"},
-        ]},
-        {type:"climb",title:"TRS Volume + On-Sight · 90 min",ex:[
-          {n:"Warm-up on 5.9 TRS",d:"2 laps"},
-          {n:"One 5.10a warm-up lap",d:"Before any hard effort"},
-          {n:"Volume laps: 10–12 laps on 5.10b–5.11a TRS",d:"Sub-max effort — movement economy, not intensity"},
-          {n:"On-sight: 5.11a or 5.11b",d:"No preview. Commit to your read."},
-          {n:"Downclimbing: full route descent",d:"Climb down before lowering"},
-        ]},
-        {type:"pt",title:"Force Board: Aerobic Endurance · 20 min",ex:[
-          {n:"6/10 endurance repeaters",d:"6 sec on / 10 sec off × 10 reps, 3 sets. Medium holds, aerobic intensity."},
-          {n:"Critical Force assessment (monthly)",d:"Run in app. Tracks your aerobic power ceiling — the number that correlates to recovery speed at rests."},
-        ]},
-        {type:"strength",title:"Antagonist · 20 min",ex:[
-          {n:"Push-ups + dips",d:"3 × max"},
-          {n:"Reverse wrist curl",d:"3 × 15"},
-          {n:"Shoulder retraction with band",d:"3 × 15"},
-        ]},
-      ],note:"Force Board endurance only — hangboard was Thursday."},
-      Saturday:{tags:["hike","climb"],diff:"hard",blocks:[
-        {type:"hike",title:"Full Outdoor Objective · 5–8 hr",ex:[
-          {n:"Multi-pitch approach + 2–3 pitch climb",d:"Full alpine day"},
-          {n:"Or: 15+ mile trail",d:"Big mileage push"},
-          {n:"Or: trad / crack objectives",d:"Pick a project route and go after it"},
-        ]},
-      ],note:"This is what everything has been building toward."},
-      Sunday:{tags:["rest","stretch"],diff:"rest",blocks:[
-        {type:"stretch",title:"Nightly Flexibility · 20 min",ex:[
-          {n:"Foam roll full body",d:"8–10 min"},
-          {n:"Pigeon / figure-4",d:"2 min each side"},
-          {n:"Psoas lunge stretch",d:"90 sec each side"},
-          {n:"Doorframe chest + shoulder",d:"60 sec each side"},
-          {n:"Supine twist",d:"2 min each side"},
-          {n:"Legs up the wall",d:"5 min"},
-        ]},
-      ],note:"Full rest. The nightly routine is a lifelong habit now."},
+      Monday:{
+        tags:["strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit A · 30 min",
+            ex:[
+              {n:"KB single-leg deadlift",d:"5 × 8 each leg — peak load, full hip hinge control"},
+              {n:"KB swing (two-hand)",d:"5 × 20 — max power output"},
+              {n:"KB single-arm row",d:"5 × 10 each side — heaviest load"},
+              {n:"KB reverse lunge (racked)",d:"4 × 10 each leg"},
+              {n:"KB windmill",d:"4 × 6 each side — heaviest windmill load"},
+              {n:"CORE — KB Turkish get-up",d:"4 × 3 each side — max controlled load"},
+              {
+                n:"Towel pull-up",
+                d:"4 × max reps — thick grip over bar via towel, full pull-up. Combines grip endurance with pulling strength under fatigue"
+              }
+            ]
+          },
+          {
+            type:"strength",
+            title:"Heavy Lower Body · 55 min",
+            ex:[
+              {n:"Back squat",d:"5 × 5, near max for 5 reps"},
+              {n:"Deadlift",d:"3 × 5, heavy"},
+              {n:"Hip thrust",d:"4 × 8 heavy"},
+              {n:"Single-leg press",d:"3 × 10 each side"},
+              {n:"Nordic curl",d:"3 × 6, eccentric focus"}
+            ]
+          }
+        ],
+        note:"Progressive overload: beat last week's weight by 5 lb on primary lifts."
+      },
+      Tuesday:{
+        tags:["climb"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"climb",
+            title:"TRS Power Endurance: Peak · 90 min",
+            ex:[
+              {n:"Warm-up on 5.9 TRS",d:"2 laps"},
+              {n:"One to two 5.10a warm-up laps",d:"Until fingers and shoulders feel ready"},
+              {n:"4×4 TRS intervals on 5.11a/b",d:"4 laps, 4-min rest between rounds, 3 rounds total"},
+              {n:"Red-point attempt: 5.11b or 5.11c",d:"Work the project — lock in rest positions and crux sequence"},
+              {n:"Hangdog the crux",d:"3–5 fresh attempts on the crux sequence from the rope"},
+              {n:"Cool-down on 5.9 / 5.10a",d:"2 easy laps"}
+            ]
+          }
+        ],
+        note:"Target: send 5.11b by week 10, project 5.11c by week 12."
+      },
+      Wednesday:{
+        tags:["strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit B · 30 min",
+            ex:[
+              {n:"KB snatch",d:"5 × 6 each side — heaviest snatch load. Full power chain from hips to overhead lock-out."},
+              {n:"KB goblet squat",d:"5 × 10 — heavy"},
+              {n:"KB high pull",d:"4 × 8 each side — explosive, elbows drive high"},
+              {n:"KB Bulgarian split squat",d:"4 × 8 each leg — rear foot elevated, bell goblet. Single-leg quad + glute max load"},
+              {
+                n:"Dead hang — towel grip",
+                d:"5 × max time — drape a towel over the pull-up bar, grip the towel ends. Thick-grip simulation, forearm recruitment far exceeds standard hang"
+              },
+              {n:"CORE — KB windmill",d:"4 × 6 each side"},
+              {n:"CORE — KB dead bug",d:"4 × 8 each side"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Upper Heavy · 35 min",
+            ex:[
+              {n:"Weighted pull-ups",d:"5 × 4–5, add 10–25 lb belt"},
+              {n:"Pendlay row",d:"4 × 6 heavy"},
+              {n:"Overhead press",d:"4 × 6 heavy"},
+              {n:"Farmer's carry heavy",d:"4 × 40 sec"}
+            ]
+          },
+          {
+            type:"pt",
+            title:"Force Board Only · 30 min",
+            ex:[
+              {n:"Peak Force benchmark (monthly)",d:"Max half-crimp pull each hand — log it and compare to Phase 3 baseline"},
+              {n:"OISO contact strength",d:"6 sec explosive pull, 5 sets, 3 min rest. Lat engagement throughout."},
+              {n:"YISO single-hand repeaters",d:"7 sec on / 3 sec off × 6 reps each hand, 3 sets. Half-crimp."},
+              {n:"Towel pull-up",d:"3 × max reps"}
+            ]
+          },
+          {
+            type:"strength",
+            title:"Military Calisthenics · 30 min — Peak",
+            ex:[
+              {n:"Burpee pull-up",d:"4 × 6, explosive"},
+              {n:"Archer push-up",d:"4 × 6 each side — one arm extended, one bent, shift side to side"},
+              {n:"Single-leg burpee",d:"3 × 5 each leg"},
+              {n:"Band-resisted pike push-up",d:"4 × 8 — band across hips"},
+              {n:"Plyometric push-up",d:"3 × 8 — hands leave ground at the top"},
+              {n:"Pistol squat",d:"4 × 8 each leg, unassisted"},
+              {n:"Hollow-to-arch rock",d:"3 × 10 — controlled roll front to back"},
+              {n:"Band pull-apart complex",d:"3 × 10 wide, 10 overhead, 10 face-pull angle — no rest between"}
+            ]
+          }
+        ],
+        note:"Force Board only on fingers — hangboard is Thursday. Calisthenics rest 30–45 sec between sets. By Phase 4 these should feel hard but not unmanageable."
+      },
+      Thursday:{
+        tags:["hike", "strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit C · 30 min",
+            ex:[
+              {n:"KB Turkish get-up",d:"4 × 4 each side — peak TGU load. Full control at every transition."},
+              {n:"KB swing (single-arm)",d:"5 × 12 each side — grip and forearm endurance at max"},
+              {n:"KB renegade row",d:"4 × 8 each side — strict plank, zero hip rotation"},
+              {n:"KB clean + press",d:"4 × 6 each side — one breath per rep"},
+              {
+                n:"KB cossack squat",
+                d:"4 × 8 each side — deep lateral squat, opposite leg straight, bell at chest. Max hip and groin mobility for high foot placements"
+              },
+              {
+                n:"Rice bucket",
+                d:"4 × 60 sec — submerge hands, open and close, rotate, spread fingers. Full antagonist conditioning and injury prevention for tendons"
+              },
+              {n:"CORE — KB windmill",d:"4 × 6 each side"}
+            ]
+          },
+          {
+            type:"pt",
+            title:"Traditional Hangboard (weighted) · 25 min",
+            ex:[
+              {n:"Warm-up: jug hangs bodyweight",d:"3 × 10 sec open-hand"},
+              {n:"Weighted max hang: half-crimp (20mm edge)",d:"20mm + 5–15 lb, 5–7 sec, 3–5 sets, 3 min rest. 85–95% RPE."},
+              {n:"Bodyweight 7×3: open-hand (22mm+ edge)",d:"7 sec on / 3 sec off × 3 reps, 3 sets, 2–3 min rest"},
+              {n:"Sloper 7×3",d:"Shoulders depressed throughout"},
+              {n:"Pinch block weighted hold",d:"3 × 10 sec with 5–10 lb added"}
+            ]
+          },
+          {
+            type:"hike",
+            title:"Peak Hike · 4–6 hr",
+            ex:[
+              {n:"Significant summit / multi-peak",d:"2500–4000+ ft elevation"},
+              {n:"Pack: 20–25 lb",d:"Full kit — emergency gear, layers"},
+              {n:"Map + compass or GPS navigation",d:"Choose your line, not just the trail"}
+            ]
+          }
+        ],
+        note:"Hangboard in the morning, hike after. 2–3 hrs between is plenty. Leave early, tell someone your route."
+      },
+      Friday:{
+        tags:["climb", "strength"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"strength",
+            title:"KB Morning · Climbing Circuit D · 30 min",
+            ex:[
+              {n:"KB swing (two-hand)",d:"5 × 25 — cardiovascular and grip endurance peak"},
+              {n:"KB snatch",d:"4 × 6 each side — reinforce pattern, max load"},
+              {n:"KB single-arm row",d:"5 × 10 each side"},
+              {
+                n:"KB curtsy lunge",
+                d:"4 × 10 each leg — step behind and across, bell at chest. Glute med + hip abductor, great for wall footwork stability"
+              },
+              {
+                n:"KB bottoms-up clean hold",
+                d:"5 × 20 sec each side — clean to rack with bell inverted, hold. Explodes grip demand at the catch and hold phase — mirrors latching a hold explosively"
+              },
+              {n:"CORE — KB windmill",d:"4 × 6 each side"},
+              {n:"CORE — KB plank drag",d:"4 × 6 each side"}
+            ]
+          },
+          {
+            type:"climb",
+            title:"TRS Volume + On-Sight · 90 min",
+            ex:[
+              {n:"Warm-up on 5.9 TRS",d:"2 laps"},
+              {n:"One 5.10a warm-up lap",d:"Before any hard effort"},
+              {n:"Volume laps: 10–12 laps on 5.10b–5.11a TRS",d:"Sub-max effort — movement economy, not intensity"},
+              {n:"On-sight: 5.11a or 5.11b",d:"No preview. Commit to your read."},
+              {n:"Downclimbing: full route descent",d:"Climb down before lowering"}
+            ]
+          },
+          {
+            type:"pt",
+            title:"Force Board: Aerobic Endurance · 20 min",
+            ex:[
+              {n:"6/10 endurance repeaters",d:"6 sec on / 10 sec off × 10 reps, 3 sets. Medium holds, aerobic intensity."},
+              {
+                n:"Critical Force assessment (monthly)",
+                d:"Run in app. Tracks your aerobic power ceiling — the number that correlates to recovery speed at rests."
+              }
+            ]
+          },
+          {
+            type:"strength",
+            title:"Antagonist + Core · 30 min",
+            ex:[
+              {n:"Push-ups + dips",d:"3 × max"},
+              {n:"Reverse wrist curl",d:"3 × 15"},
+              {n:"Shoulder retraction with band",d:"3 × 15"},
+              {n:"Captain's chair toes-to-bar",d:"3 × 8 — straight legs, raise toes to bar. Max hip flexor + abs demand"},
+              {n:"Cable pallof press with rotation",d:"3 × 10 each side — press out, rotate torso 45° away from stack, return"},
+              {n:"Decline weighted crunch",d:"3 × 12 — hold plate at chest, pause and squeeze at top of decline bench"}
+            ]
+          }
+        ],
+        note:"Force Board endurance only — hangboard was Thursday."
+      },
+      Saturday:{
+        tags:["hike", "climb"],
+        diff:"hard",
+        blocks:[
+          {
+            type:"hike",
+            title:"Full Outdoor Objective · 5–8 hr",
+            ex:[
+              {n:"Multi-pitch approach + 2–3 pitch climb",d:"Full alpine day"},
+              {n:"Or: 15+ mile trail",d:"Big mileage push"},
+              {n:"Or: trad / crack objectives",d:"Pick a project route and go after it"}
+            ]
+          }
+        ],
+        note:"This is what everything has been building toward."
+      },
+      Sunday:{
+        tags:["rest", "stretch"],
+        diff:"rest",
+        blocks:[
+          {
+            type:"stretch",
+            title:"Nightly Flexibility · 20 min",
+            ex:[
+              {n:"Foam roll full body",d:"8–10 min"},
+              {n:"Pigeon / figure-4",d:"2 min each side"},
+              {n:"Psoas lunge stretch",d:"90 sec each side"},
+              {n:"Doorframe chest + shoulder",d:"60 sec each side"},
+              {n:"Supine twist",d:"2 min each side"},
+              {n:"Legs up the wall",d:"5 min"},
+              {n:"Hollow body rock",d:"3 × 10 — rock front to back maintaining hollow position throughout"},
+              {n:"Copenhagen side plank",d:"3 × 20 sec each side — top foot on bench, bottom leg hanging, hips high"},
+              {n:"Kneeling cable crunch",d:"3 × 12 — rope at cable stack, kneel, crunch down fully, feel the stretch at top"}
+            ]
+          }
+        ],
+        note:"Full rest. The nightly routine is a lifelong habit now."
+      }
     }
   }
 ];
-
 const DAYS_ORDER = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 const TAG_CLS = {pt:"dtag-pt",yoga:"dtag-yoga",stretch:"dtag-stretch",strength:"dtag-strength",rest:"dtag-rest",hike:"dtag-hike",climb:"dtag-climb"};
 const TAG_LABEL = {pt:"PT",yoga:"Yoga",stretch:"Stretch",strength:"Strength",rest:"Rest",hike:"Hike",climb:"Climbing"};
